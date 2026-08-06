@@ -547,6 +547,142 @@ footer{
   <p>« Jamais trop.<br>Toujours <span>plusieurs</span>. »</p>
 </section>
 
+<!-- ============================ 05 · PORTFOLIO ============================ -->
+<style>
+.folio{padding-left:8vw;padding-right:8vw}
+.folio-intro{color:#CBB3C4;max-width:52ch;margin:14px 0 30px}
+.folio-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.folio-chip{font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.02em;color:var(--muted);background:transparent;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 16px;cursor:pointer;transition:.25s}
+.folio-chip:hover{color:var(--ivoire);border-color:var(--sable)}
+.folio-chip.on{color:var(--ivoire);border-color:var(--sable);background:rgba(255,79,163,.10)}
+.folio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.folio-item{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:var(--marine);cursor:pointer;padding:0;text-align:left;transition:transform .35s,border-color .35s}
+.folio-item:hover{border-color:rgba(255,79,163,.5);transform:translateY(-2px)}
+.folio-item img,.folio-item svg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.folio-item:hover img{transform:scale(1.05)}
+.folio-cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:linear-gradient(to top,rgba(10,9,13,.86),rgba(10,9,13,.06) 55%,transparent)}
+.folio-cat{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sable)}
+.folio-cap h3{font-family:'Fraunces',serif;font-weight:400;font-size:18px;color:var(--ivoire);margin-top:3px}
+.folio-lb{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(5,4,8,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.folio-lb.on{display:flex}
+.folio-lb-card{position:relative;max-width:640px;width:100%;background:var(--marine-2);border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden}
+.folio-lb-media{aspect-ratio:16/10;background:var(--nuit)}
+.folio-lb-media img,.folio-lb-media svg{width:100%;height:100%;object-fit:cover;display:block}
+.folio-lb-body{padding:22px 24px}
+.folio-lb-body .folio-cat{font-size:12px}
+.folio-lb-body h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;color:var(--ivoire);margin:5px 0 9px}
+.folio-lb-body p{color:var(--muted);font-size:14.5px;line-height:1.6}
+.folio-lb-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(10,9,13,.6);color:var(--ivoire);font-size:22px;line-height:1;cursor:pointer;z-index:2}
+.folio-lb-close:hover{border-color:var(--sable);color:var(--sable)}
+@media(max-width:640px){.folio-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+</style>
+
+<section class="folio reveal" id="portfolio">
+  <div class="k">05 · Le portfolio</div>
+  <h2>Réalisations <em>&amp; regards</em></h2>
+  <p class="folio-intro">Un choix d'images et de projets — la constellation, donnée à voir. Clique une vignette pour l'agrandir.</p>
+  <div class="folio-filters" id="folioFilters"></div>
+  <div class="folio-grid" id="folioGrid"></div>
+</section>
+
+<div class="folio-lb" id="folioLb" role="dialog" aria-modal="true" aria-label="Réalisation">
+  <div class="folio-lb-card">
+    <button class="folio-lb-close" id="folioClose" aria-label="Fermer">×</button>
+    <div class="folio-lb-media" id="folioLbMedia"></div>
+    <div class="folio-lb-body">
+      <div class="folio-cat" id="folioLbCat"></div>
+      <h3 id="folioLbTitle"></h3>
+      <p id="folioLbDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== 05 · Portfolio =======================================================
+   Pour ajouter une réalisation : dépose l'image dans assets/portfolio/ puis
+   ajoute une entrée ci-dessous. Une entrée sans "img" (ou image manquante)
+   affiche une vignette « constellation » de repli. */
+const FOLIO = [
+  { titre:"Signer sa légende", cat:"Identity Design", annee:"2025",
+    desc:"D'une identité construite vers une identité choisie. Le narratif comme matière première, avant le récit officiel." },
+  { titre:"Identités fractales", cat:"Identity Design", annee:"2025",
+    desc:"Toutes les vies qui coexistent en une seule personne — passé, présent, futur — convoquées au même endroit." },
+  { titre:"Le territoire des constellations", cat:"Territoire", annee:"2025",
+    desc:"Donner à voir, à entendre, à idéation : un territoire non encore exploré, investi de futurs inspirés et résilients." },
+  { titre:"Nouvelle cartographie", cat:"Territoire", annee:"2024",
+    desc:"Quand les boussoles héritées s'affolent, s'en approprier d'autres qui convergent." },
+  { titre:"Le temps X.2", cat:"Métaphysique", annee:"2024",
+    desc:"Le moment exact où les constructions se dissolvent — non pas une crise, une rupture méta." },
+  { titre:"Les seuils", cat:"Transition", annee:"2024",
+    desc:"Reconnaître le kairos, le temps du moment opportun — et monter dans le train des transformations." },
+  { titre:"Ce qui s'est dissout", cat:"Transition", annee:"2023",
+    desc:"Ce qui a été bâti s'est dissout — et rouvre le cours." },
+  { titre:"Matière & couleur", cat:"Matière", annee:"2023",
+    desc:"La matière et la couleur comme langage. Un paysage quand les mots sont de trop." },
+];
+(function(){
+  const grid=document.getElementById('folioGrid'),
+        filt=document.getElementById('folioFilters'),
+        lb=document.getElementById('folioLb');
+  if(!grid) return;
+
+  // Vignette de repli : petit ciel étoilé déterministe (aucun réseau).
+  function stars(seed){
+    let h=1779033703^seed.length;
+    for(let i=0;i<seed.length;i++){h=Math.imul(h^seed.charCodeAt(i),3432918353);h=(h<<13)|(h>>>19);}
+    let a=h>>>0;const rnd=()=>{a=(a+0x6d2b79f5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};
+    const pts=Array.from({length:14},()=>({x:rnd()*100,y:rnd()*100,r:rnd()*1.1+.4}));
+    let s='<svg viewBox="0 0 100 100" preserveAspectRatio="none" style="background:radial-gradient(120% 100% at 30% 12%,rgba(255,79,163,.16),transparent 60%)">';
+    for(let i=0;i<pts.length;i++){const n=pts[(i+1)%pts.length];s+='<line x1="'+pts[i].x+'" y1="'+pts[i].y+'" x2="'+n.x+'" y2="'+n.y+'" stroke="#FF4FA3" stroke-width="0.18" opacity="0.18"/>';}
+    for(const p of pts){s+='<circle cx="'+p.x+'" cy="'+p.y+'" r="'+p.r+'" fill="#FF8A4C" opacity="0.75"/>';}
+    return s+'</svg>';
+  }
+  function mediaEl(it){
+    if(it.img){
+      const img=new Image();img.src=it.img;img.alt=it.titre;img.loading='lazy';
+      img.onerror=function(){const w=document.createElement('div');w.style.cssText='width:100%;height:100%';w.innerHTML=stars(it.titre);img.replaceWith(w.firstChild);};
+      return img;
+    }
+    const w=document.createElement('div');w.style.cssText='width:100%;height:100%';w.innerHTML=stars(it.titre);return w.firstChild;
+  }
+
+  const cats=['Tout',...Array.from(new Set(FOLIO.map(i=>i.cat)))];
+  let active='Tout';
+
+  function openLb(it){
+    const m=document.getElementById('folioLbMedia');m.innerHTML='';m.appendChild(mediaEl(it));
+    document.getElementById('folioLbCat').textContent=it.cat+(it.annee?' · '+it.annee:'');
+    document.getElementById('folioLbTitle').textContent=it.titre;
+    document.getElementById('folioLbDesc').textContent=it.desc||'';
+    lb.classList.add('on');
+  }
+  function closeLb(){lb.classList.remove('on');}
+  document.getElementById('folioClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+
+  function render(){
+    grid.innerHTML='';
+    FOLIO.filter(i=>active==='Tout'||i.cat===active).forEach(it=>{
+      const b=document.createElement('button');b.className='folio-item';b.type='button';
+      b.appendChild(mediaEl(it));
+      const cap=document.createElement('div');cap.className='folio-cap';
+      cap.innerHTML='<span class="folio-cat">'+it.cat+(it.annee?' · '+it.annee:'')+'</span><h3>'+it.titre+'</h3>';
+      b.appendChild(cap);
+      b.addEventListener('click',()=>openLb(it));
+      grid.appendChild(b);
+    });
+  }
+  cats.forEach(c=>{
+    const chip=document.createElement('button');chip.className='folio-chip'+(c==='Tout'?' on':'');chip.type='button';chip.textContent=c;
+    chip.addEventListener('click',()=>{active=c;[...filt.children].forEach(x=>x.classList.toggle('on',x.textContent===c));render();});
+    filt.appendChild(chip);
+  });
+  render();
+})();
+</script>
+<!-- ========================== /05 · PORTFOLIO =========================== -->
+
 <section class="cta" id="contact">
   <div class="k">Entrer dans le lab</div>
   <h2 class="reveal">Raconte-moi<br>ton multivers identitaire.</h2>
