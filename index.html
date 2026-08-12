@@ -431,6 +431,25 @@ section[id]{scroll-margin-top:78px}
   .nav.open{transform:translateY(0)}
   .nav a{font-family:'Fraunces',serif;font-size:27px;text-transform:none;letter-spacing:.005em;color:var(--ivoire)}
 }
+
+/* ---- welcome + explore blocks ---- */
+.welcome{max-width:35rem;margin-top:24px}
+.welcome p{color:var(--muted);font-size:16px;line-height:1.62}
+.welcome b{color:var(--ivoire);font-weight:400}
+.welcome i{color:var(--sable);font-style:italic}
+.welcome ul{list-style:none;margin:14px 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.welcome li{position:relative;padding-left:22px;color:var(--muted);font-size:15px;line-height:1.5}
+.welcome li::before{content:"✦";position:absolute;left:0;top:2px;color:var(--perv);font-size:11px}
+.welcome-out{margin-top:14px}
+.explore{padding:4vh 8vw 9vh}
+.explore-sub{color:var(--muted);font-size:15px;margin:10px 0 26px}
+.blockgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px}
+.bigblock{display:flex;flex-direction:column;min-height:172px;padding:22px;border:1px solid rgba(205,187,160,.16);border-radius:18px;background:linear-gradient(160deg,var(--marine-2),var(--marine));text-decoration:none;transition:border-color .3s,transform .3s,box-shadow .3s}
+.bigblock:hover{border-color:var(--sable);transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(0,0,0,.8)}
+.bigblock .bb-idx{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.22em;color:var(--sable)}
+.bigblock h3{font-family:'Fraunces',serif;font-weight:400;font-size:23px;color:var(--ivoire);margin:auto 0 8px;line-height:1.14}
+.bigblock .bb-go{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.04em;color:var(--muted);transition:color .3s}
+.bigblock:hover .bb-go{color:var(--ivoire)}
 </style>
 </head>
 <body>
@@ -456,11 +475,31 @@ section[id]{scroll-margin-top:78px}
   <div class="hero-right">
     <h1>
       Bienvenue dans<br>
-      <span class="l2">ma constellation</span><br>
-      d'explorations
+      <span class="l2">la Constellation</span>
     </h1>
+    <div class="welcome">
+      <p>Un espace dédié aux <b>femmes</b> qui souhaitent mettre leur <b>signature au cœur des business</b> qu'elles développent :</p>
+      <ul>
+        <li>Par le prisme d'une <b>esthétique exclusive</b> qui les rend uniques</li>
+        <li>Par le déploiement du <b>système le plus adapté</b> à leur business</li>
+      </ul>
+      <p class="welcome-out">Bref, par le rayonnement de leur <i>identité unique et identifiable entre mille</i>.</p>
+    </div>
   </div>
   <div class="scroll-hint">dérouler ↓</div>
+</section>
+
+<section class="explore reveal" id="explore">
+  <div class="k">Explorer</div>
+  <h2>Choisis ton <em>territoire</em></h2>
+  <p class="explore-sub">Chaque bloc ouvre le portfolio correspondant.</p>
+  <div class="blockgrid">
+    <a class="bigblock" data-cat="Identity Design" href="#portfolio"><span class="bb-idx">01</span><h3>Identity Design</h3><span class="bb-go">Voir les réalisations →</span></a>
+    <a class="bigblock" data-cat="Territoire" href="#portfolio"><span class="bb-idx">02</span><h3>Territoire</h3><span class="bb-go">Voir les réalisations →</span></a>
+    <a class="bigblock" data-cat="Métaphysique" href="#portfolio"><span class="bb-idx">03</span><h3>Métaphysique de la transition</h3><span class="bb-go">Voir les réalisations →</span></a>
+    <a class="bigblock" data-cat="Transition" href="#portfolio"><span class="bb-idx">04</span><h3>Transition</h3><span class="bb-go">Voir les réalisations →</span></a>
+    <a class="bigblock" data-cat="Matière" href="#portfolio"><span class="bb-idx">05</span><h3>Matière</h3><span class="bb-go">Voir les réalisations →</span></a>
+  </div>
 </section>
 
 <section class="about reveal" id="about">
@@ -864,6 +903,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   if(!nav||!tog) return;
   tog.addEventListener('click',function(){var o=nav.classList.toggle('open'); tog.textContent=o?'Fermer':'Menu';});
   nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open'); tog.textContent='Menu';});});
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.bigblock').forEach(function(bb){
+    bb.addEventListener('click',function(e){
+      e.preventDefault();
+      var cat=bb.getAttribute('data-cat');
+      var chip=Array.prototype.slice.call(document.querySelectorAll('.folio-chip')).filter(function(x){return x.textContent.trim()===cat;})[0];
+      if(chip) chip.click();
+      var pf=document.getElementById('portfolio'); if(pf) pf.scrollIntoView();
+    });
+  });
 })();
 </script>
 </body>
