@@ -47,10 +47,12 @@ main{position:relative;z-index:1}
 
 /* ---------- header ---------- */
 header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  padding:20px 24px;
-  background:linear-gradient(to bottom, rgba(10,9,13,.94), rgba(10,9,13,0));
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:16px 24px;
+  background:rgba(12,11,10,.82);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(205,187,160,.14);
 }
 .wordmark{
   font-family:'Fraunces',serif;
@@ -413,6 +415,22 @@ footer{
   form{margin:0}
   .cta{padding-left:8vw}
 }
+
+/* ---- navigation menu ---- */
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:78px}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{font-family:'Outfit',sans-serif;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+.nav a:hover{color:var(--ivoire)}
+.navtog{display:none;background:none;border:1px solid rgba(205,187,160,.30);color:var(--ivoire);font-family:'Outfit',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:9px 15px;border-radius:999px;cursor:pointer}
+.about{padding:16vh 8vw 4vh}
+.about .idcard{margin-top:6px}
+@media(max-width:860px){
+  .navtog{display:inline-block}
+  .nav{position:fixed;top:0;left:0;width:100%;height:100vh;height:100dvh;background:#0C0B0A;flex-direction:column;justify-content:center;gap:28px;transform:translateY(-102%);transition:transform .45s cubic-bezier(.16,1,.3,1);z-index:58}
+  .nav.open{transform:translateY(0)}
+  .nav a{font-family:'Fraunces',serif;font-size:27px;text-transform:none;letter-spacing:.005em;color:var(--ivoire)}
+}
 </style>
 </head>
 <body>
@@ -422,32 +440,45 @@ footer{
 <main>
 
 <header>
-  <a class="wordmark" href="#">Marina <span>Constellation</span></a>
-  
+  <a class="wordmark" href="#top">Marina <span>Constellation</span></a>
+  <nav class="nav" id="nav">
+    <a href="#top">Accueil</a>
+    <a href="#about">Qui sommes-nous</a>
+    <a href="#lab">Le Lab</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#event">Événement</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="navtog" id="navtog" aria-label="Ouvrir le menu">Menu</button>
 </header>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-right">
     <h1>
       Bienvenue dans<br>
       <span class="l2">ma constellation</span><br>
       d'explorations
     </h1>
-    <div class="idcard">
-      <div class="idrow"><span class="idk">Moi</span><span class="idv">Marina</span></div>
-      <div class="idrow"><span class="idk">Origine</span><span class="idv"><span class="x">X</span></span></div>
-      <div class="idrow"><span class="idk">J'aime</span><span class="idv">les histoires <span class="fl">→</span> les grands appartements <span class="fl">→</span> les fulgurances de l'esprit <span class="fl">→</span> la justesse <span class="fl">→</span> les transitions <span class="fl">→</span> l'art tout azimut</span></div>
-    </div>
-    <p class="mission">Ma mission : explorer les multivers identitaires — et donner aux vies plurielles les moyens de signer leur légende.</p>
   </div>
   <div class="scroll-hint">dérouler ↓</div>
+</section>
+
+<section class="about reveal" id="about">
+  <div class="k">Qui sommes-nous</div>
+  <h2>Marina, <em>plurielle</em></h2>
+  <div class="idcard">
+    <div class="idrow"><span class="idk">Moi</span><span class="idv">Marina</span></div>
+    <div class="idrow"><span class="idk">Origine</span><span class="idv"><span class="x">X</span></span></div>
+    <div class="idrow"><span class="idk">J'aime</span><span class="idv">les histoires <span class="fl">→</span> les grands appartements <span class="fl">→</span> les fulgurances de l'esprit <span class="fl">→</span> la justesse <span class="fl">→</span> les transitions <span class="fl">→</span> l'art tout azimut</span></div>
+  </div>
+  <p class="mission">Ma mission : explorer les multivers identitaires — et donner aux vies plurielles les moyens de signer leur légende.</p>
 </section>
 
 <div class="strip" aria-hidden="true">
   <span>Passé <b>·</b> Présent <b>·</b> Futur <b>·</b> Passé <b>·</b> Présent <b>·</b> Futur <b>·</b> Passé <b>·</b> Présent <b>·</b> Futur <b>·</b> Passé <b>·</b> Présent <b>·</b> Futur</span>
 </div>
 
-<section class="journey">
+<section class="journey" id="lab">
   <div class="avatar-wrap">
     <div class="sphere" aria-hidden="true"></div>
   </div>
@@ -556,16 +587,16 @@ footer{
 .folio-item:hover{border-color:rgba(205,187,160,.5);transform:translateY(-2px)}
 .folio-item img,.folio-item svg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
 .folio-item:hover img{transform:scale(1.05)}
-.folio-cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:linear-gradient(to top,rgba(10,9,13,.86),rgba(10,9,13,.06) 55%,transparent)}
-.folio-cat{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sable)}
-.folio-cap h3{font-family:'Fraunces',serif;font-weight:400;font-size:18px;color:var(--ivoire);margin-top:3px}
+.folio-cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:13px 14px;background:linear-gradient(to top,rgba(8,7,7,.80),rgba(8,7,7,0) 44%)}
+.folio-cat{font-family:'Outfit',sans-serif;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--sable);opacity:.9}
+.folio-cap h3{font-family:'Fraunces',serif;font-weight:400;font-size:14px;letter-spacing:.01em;line-height:1.16;color:var(--ivoire);margin-top:3px}
 .folio-lb{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(5,4,8,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .folio-lb.on{display:flex}
 .folio-lb-card{position:relative;max-width:640px;width:100%;background:var(--marine-2);border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden}
 .folio-lb-media{aspect-ratio:16/10;background:var(--nuit)}
 .folio-lb-media img,.folio-lb-media svg{width:100%;height:100%;object-fit:cover;display:block}
 .folio-lb-body{padding:22px 24px}
-.folio-lb-body .folio-cat{font-size:12px}
+.folio-lb-body 
 .folio-lb-body h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;color:var(--ivoire);margin:5px 0 9px}
 .folio-lb-body p{color:var(--muted);font-size:14.5px;line-height:1.6}
 .folio-lb-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(10,9,13,.6);color:var(--ivoire);font-size:22px;line-height:1;cursor:pointer;z-index:2}
@@ -601,7 +632,7 @@ footer{
 const FOLIO = [
   { titre:"Signer sa légende", cat:"Identity Design", annee:"2025", img:"p-identity-mai.jpg",
     desc:"D'une identité construite vers une identité choisie. Le narratif comme matière première, avant le récit officiel." },
-  { titre:"Identités fractales", cat:"Identity Design", annee:"2025", img:"p-identity-identitx.jpg",
+  { titre:"Identités fractales", cat:"Identity Design", annee:"2025",
     desc:"Toutes les vies qui coexistent en une seule personne — passé, présent, futur — convoquées au même endroit." },
   { titre:"L'espace, une signature", cat:"Identity Design", annee:"2026", img:"p-identity-espace.jpg",
     desc:"Composer un lieu comme une identité : matières nobles, objets choisis, une esthétique sur mesure qui résonne." },
@@ -702,8 +733,8 @@ const FOLIO = [
 .hmod p{color:var(--muted);font-size:14.5px;line-height:1.6}
 </style>
 
-<section class="horizons reveal" id="horizons">
-  <div class="k">06 · Horizons</div>
+<section class="horizons reveal" id="event">
+  <div class="k">Événement</div>
   <h2>Les conversations <em>continues</em></h2>
   <p class="horizons-intro">Une conversation continue qui irradie par des expérimentations — du « donner à voir », du « donner à entendre », du « donner à idéation ». Trois modules, un même fil.</p>
   <div class="hmods">
@@ -827,5 +858,13 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
 
+<script>
+(function(){
+  var nav=document.getElementById('nav'), tog=document.getElementById('navtog');
+  if(!nav||!tog) return;
+  tog.addEventListener('click',function(){var o=nav.classList.toggle('open'); tog.textContent=o?'Fermer':'Menu';});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open'); tog.textContent='Menu';});});
+})();
+</script>
 </body>
 </html>
