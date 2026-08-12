@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="locked">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marina Constellation — Lab expérientiel &amp; confidentiel</title>
+<title>IdentX — La constellation des femmes qui signent leur business</title>
 <meta name="description" content="Marina Constellation. Lab expérientiel et confidentiel. Explorer les multivers identitaires — passé, présent, futur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -450,16 +450,29 @@ section[id]{scroll-margin-top:78px}
 .bigblock h3{font-family:'Fraunces',serif;font-weight:400;font-size:23px;color:var(--ivoire);margin:auto 0 8px;line-height:1.14}
 .bigblock .bb-go{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.04em;color:var(--muted);transition:color .3s}
 .bigblock:hover .bb-go{color:var(--ivoire)}
+
+/* ---- email gate ---- */
+.gateform{display:flex;gap:10px;margin-top:28px;max-width:34rem;flex-wrap:wrap}
+.gateform input{flex:1;min-width:210px;background:rgba(205,187,160,.06);border:1px solid rgba(205,187,160,.30);border-radius:12px;color:var(--ivoire);font-size:15px;padding:14px 16px;font-family:'Outfit',sans-serif;outline:none}
+.gateform input::placeholder{color:var(--muted)}
+.gateform input:focus{border-color:var(--sable)}
+.gateform button{background:linear-gradient(120deg,var(--sable),var(--perv));color:#1a140e;border:none;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.02em;padding:14px 22px;cursor:pointer;white-space:nowrap;transition:transform .2s}
+.gateform button:hover{transform:translateY(-2px)}
+.gatehint{color:var(--muted);font-size:13px;margin-top:12px}
+.signature-lines{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--ivoire);line-height:1.55;margin-top:18px}
+html.locked .nav,html.locked .navtog,html.locked #explore,html.locked #about,html.locked .strip,html.locked #lab,html.locked .lexicon,html.locked .quote,html.locked #portfolio,html.locked #event,html.locked #contact,html.locked footer,html.locked .scroll-unlocked{display:none!important}
+html:not(.locked) .gateform,html:not(.locked) .gatehint{display:none!important}
 </style>
 </head>
 <body>
+<script>try{if(localStorage.getItem('identx_unlocked')==='1'){document.documentElement.classList.remove('locked');}else{document.documentElement.classList.add('locked');}}catch(e){}</script>
 
 <canvas id="neural" aria-hidden="true"></canvas>
 
 <main>
 
 <header>
-  <a class="wordmark" href="#top">Marina <span>Constellation</span></a>
+  <a class="wordmark" href="#top">Ident<span>X</span></a>
   <nav class="nav" id="nav">
     <a href="#top">Accueil</a>
     <a href="#about">Qui sommes-nous</a>
@@ -475,18 +488,26 @@ section[id]{scroll-margin-top:78px}
   <div class="hero-right">
     <h1>
       Bienvenue dans<br>
-      <span class="l2">la Constellation</span>
+      <span class="l2">la constellation IdentX</span>
     </h1>
     <div class="welcome">
-      <p>Un espace dédié aux <b>femmes</b> qui souhaitent mettre leur <b>signature au cœur des business</b> qu'elles développent :</p>
+      <p>L'espace dédié aux <b>femmes</b> qui souhaitent placer leur <b>signature personnelle au cœur du business</b> qu'elles développent.</p>
+      <p>Ici, votre identité devient un véritable <b>levier de rayonnement</b> :</p>
       <ul>
-        <li>Par le prisme d'une <b>esthétique exclusive</b> qui les rend uniques</li>
-        <li>Par le déploiement du <b>système le plus adapté</b> à leur business</li>
+        <li>À travers une <b>esthétique singulière</b>, pensée pour révéler ce qui vous rend unique&nbsp;;</li>
+        <li>À travers un <b>système cohérent et adapté</b>, conçu pour soutenir votre vision, votre activité et votre manière de travailler&nbsp;;</li>
+        <li>À travers une <b>présence identifiable entre mille</b>, capable d'attirer naturellement les bonnes personnes.</li>
       </ul>
-      <p class="welcome-out">Bref, par le rayonnement de leur <i>identité unique et identifiable entre mille</i>.</p>
+      <p>IdentX vous accompagne pour faire émerger un business qui ne ressemble pas simplement à une tendance ou à un modèle existant, mais qui devient <i>l'expression visible de qui vous êtes</i>.</p>
+      <p class="signature-lines">Un business avec une signature.<br>Une esthétique.<br>Un système.<br>Un rayonnement.</p>
     </div>
+    <form class="gateform" onsubmit="return gateUnlock(this)">
+      <input type="email" name="email" placeholder="Votre email" required>
+      <button type="submit">Accéder à la constellation →</button>
+    </form>
+    <p class="gatehint">Laissez votre email pour découvrir l'univers complet.</p>
+    <div class="scroll-hint scroll-unlocked">dérouler ↓</div>
   </div>
-  <div class="scroll-hint">dérouler ↓</div>
 </section>
 
 <section class="explore reveal" id="explore">
@@ -917,6 +938,18 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     });
   });
 })();
+</script>
+<script>
+function gateUnlock(f){
+  try{
+    var data=new FormData(f); data.append('objet','Accès constellation IdentX');
+    fetch('https://formspree.io/f/xrewnkyk',{method:'POST',body:data,headers:{'Accept':'application/json'}}).catch(function(){});
+    localStorage.setItem('identx_unlocked','1');
+  }catch(e){}
+  document.documentElement.classList.remove('locked');
+  var t=document.getElementById('explore'); if(t) t.scrollIntoView({behavior:'smooth'});
+  return false;
+}
 </script>
 </body>
 </html>
