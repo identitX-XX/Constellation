@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IdentX — La constellation des femmes qui signent leur business</title>
-<meta name="description" content="Marina Constellation. Lab expérientiel et confidentiel. Explorer les multivers identitaires — passé, présent, futur.">
+<title>La Constellation — Placer votre signature au cœur de votre business</title>
+<meta name="description" content="La Constellation. Lab expérientiel et confidentiel. Placer votre signature au cœur de votre business.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -462,6 +462,7 @@ section[id]{scroll-margin-top:78px}
 .signature-lines{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--ivoire);line-height:1.55;margin-top:18px}
 html.locked .nav,html.locked .navtog,html.locked #explore,html.locked #about,html.locked .strip,html.locked #lab,html.locked .lexicon,html.locked .quote,html.locked #portfolio,html.locked #event,html.locked #contact,html.locked footer,html.locked .scroll-unlocked{display:none!important}
 html:not(.locked) .gateform,html:not(.locked) .gatehint{display:none!important}
+.welcome .role{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sable);margin-bottom:14px}
 </style>
 </head>
 <body>
@@ -472,7 +473,7 @@ html:not(.locked) .gateform,html:not(.locked) .gatehint{display:none!important}
 <main>
 
 <header>
-  <a class="wordmark" href="#top">Ident<span>X</span></a>
+  <a class="wordmark" href="#top">La <span>Constellation</span></a>
   <nav class="nav" id="nav">
     <a href="#top">Accueil</a>
     <a href="#about">Qui sommes-nous</a>
@@ -488,18 +489,19 @@ html:not(.locked) .gateform,html:not(.locked) .gatehint{display:none!important}
   <div class="hero-right">
     <h1>
       Bienvenue dans<br>
-      <span class="l2">la constellation IdentX</span>
+      <span class="l2">la Constellation</span>
     </h1>
     <div class="welcome">
-      <p>L'espace dédié aux <b>femmes</b> qui souhaitent placer leur <b>signature personnelle au cœur du business</b> qu'elles développent.</p>
+      <p class="role">Venture builder · product designer · curatrice</p>
+      <p>J'accompagne les <b>femmes</b> qui souhaitent placer leur <b>signature personnelle au cœur du business</b> qu'elles développent.</p>
       <p>Ici, votre identité devient un véritable <b>levier de rayonnement</b> :</p>
       <ul>
         <li>À travers une <b>esthétique singulière</b>, pensée pour révéler ce qui vous rend unique&nbsp;;</li>
         <li>À travers un <b>système cohérent et adapté</b>, conçu pour soutenir votre vision, votre activité et votre manière de travailler&nbsp;;</li>
         <li>À travers une <b>présence identifiable entre mille</b>, capable d'attirer naturellement les bonnes personnes.</li>
       </ul>
-      <p>IdentX vous accompagne pour faire émerger un business qui ne ressemble pas simplement à une tendance ou à un modèle existant, mais qui devient <i>l'expression visible de qui vous êtes</i>.</p>
-      <p class="signature-lines">Un business avec une signature.<br>Une esthétique.<br>Un système.<br>Un rayonnement.</p>
+      <p>Je fais émerger des business qui ne ressemblent pas simplement à une tendance ni à un modèle existant, mais qui deviennent <i>l'expression visible de qui vous êtes</i>.</p>
+      <p class="signature-lines">Une signature.<br>Une esthétique.<br>Un système.<br>Un rayonnement.</p>
     </div>
     <form class="gateform" onsubmit="return gateUnlock(this)">
       <input type="email" name="email" placeholder="Votre email" required>
@@ -525,9 +527,9 @@ html:not(.locked) .gateform,html:not(.locked) .gatehint{display:none!important}
 
 <section class="about reveal" id="about">
   <div class="k">Qui sommes-nous</div>
-  <h2>Marina, <em>plurielle</em></h2>
+  <h2>Une identité <em>plurielle</em></h2>
   <div class="idcard">
-    <div class="idrow"><span class="idk">Moi</span><span class="idv">Marina</span></div>
+    <div class="idrow"><span class="idk">Rôle</span><span class="idv">Venture builder · product designer · curatrice</span></div>
     <div class="idrow"><span class="idk">Origine</span><span class="idv"><span class="x">X</span></span></div>
     <div class="idrow"><span class="idk">J'aime</span><span class="idv">les histoires <span class="fl">→</span> les grands appartements <span class="fl">→</span> les fulgurances de l'esprit <span class="fl">→</span> la justesse <span class="fl">→</span> les transitions <span class="fl">→</span> l'art tout azimut</span></div>
   </div>
@@ -831,7 +833,7 @@ const FOLIO = [
 </section>
 
 <footer>
-  <div>Marina Constellation — Lab expérientiel &amp; confidentiel</div>
+  <div>La Constellation — Lab expérientiel &amp; confidentiel</div>
   <div>© 2026</div>
 </footer>
 
@@ -942,7 +944,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script>
 function gateUnlock(f){
   try{
-    var data=new FormData(f); data.append('objet','Accès constellation IdentX');
+    var data=new FormData(f); data.append('objet','Accès constellation La Constellation');
     fetch('https://formspree.io/f/xrewnkyk',{method:'POST',body:data,headers:{'Accept':'application/json'}}).catch(function(){});
     localStorage.setItem('identx_unlocked','1');
   }catch(e){}
