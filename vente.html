@@ -69,14 +69,33 @@ header.scrolled{border-bottom-color:var(--line)}
 .reco-item .ri-n{font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.14em;color:var(--faint);padding-top:5px}
 .reco-item p{color:var(--ink-soft);font-size:clamp(18px,2.3vw,23px);font-family:'Fraunces',serif;font-weight:300;line-height:1.32}
 
-.leviers{background:var(--bg-2)}
-.leviers .intro{color:var(--muted);max-width:52ch;font-size:17px;margin-bottom:56px}
-.mods{display:grid;grid-template-columns:1fr;gap:0}
-.mod{display:grid;grid-template-columns:96px 1fr;gap:28px;align-items:start;padding:40px 0;border-top:1px solid var(--line)}
-.mod:last-child{border-bottom:1px solid var(--line)}
-.mod .m-n{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:40px;color:var(--gold-soft)}
-.mod h3{font-size:clamp(24px,3vw,32px);margin-bottom:12px}
-.mod p{color:var(--muted);max-width:52ch;font-size:16px}
+/* ---- PROGRAMME (blocs cliquables) ---- */
+.prog{background:var(--bg-2)}
+.prog .intro{color:var(--muted);max-width:52ch;font-size:17px;margin-bottom:20px}
+.prog .hint{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:44px}
+.prog-list{border-bottom:1px solid var(--line)}
+.prog-item{border-top:1px solid var(--line)}
+.prog-head{width:100%;text-align:left;background:none;border:0;cursor:pointer;color:inherit;
+  display:grid;grid-template-columns:92px 1fr 40px;gap:24px;align-items:center;padding:34px 4px;transition:padding-left .3s}
+.prog-head:hover{padding-left:14px}
+.prog-n{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(34px,5vw,48px);color:var(--gold);line-height:1}
+.prog-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(22px,3.2vw,32px);color:var(--ink)}
+.prog-tog{justify-self:end;width:34px;height:34px;border:1px solid var(--line-2);border-radius:999px;position:relative;transition:.3s;flex:none}
+.prog-tog::before,.prog-tog::after{content:"";position:absolute;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);transition:.3s}
+.prog-tog::before{width:13px;height:1.5px}
+.prog-tog::after{width:1.5px;height:13px}
+.prog-item.open .prog-tog{background:var(--gold);border-color:var(--gold)}
+.prog-item.open .prog-tog::before{background:var(--btn-fg)}
+.prog-item.open .prog-tog::after{opacity:0}
+.prog-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .45s ease}
+.prog-item.open .prog-body{max-height:340px;opacity:1}
+.prog-body .inner{padding:0 4px 40px calc(92px + 24px)}
+.prog-body p{color:var(--muted);font-size:clamp(16px,2vw,18px);max-width:56ch}
+.prog-body .tag{display:inline-block;margin-top:16px;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:640px){
+  .prog-head{grid-template-columns:56px 1fr 34px;gap:14px;padding:26px 2px}
+  .prog-body .inner{padding-left:0;padding-bottom:32px}
+}
 
 .works h2{margin-bottom:44px;max-width:16ch}
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
@@ -97,8 +116,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 @media(max-width:720px){
   .work-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .mod{grid-template-columns:64px 1fr;gap:16px}
-  .mod .m-n{font-size:30px}
   .reco-item{grid-template-columns:48px 1fr;gap:12px}
   .hcta{padding:12px 16px;font-size:11px;letter-spacing:.1em}
 }
@@ -120,7 +137,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <p class="lead">J'accompagne les <b>femmes</b> qui souhaitent placer leur <b>signature personnelle</b> au cœur du business qu'elles développent — par une <b>esthétique singulière</b>, un <b>système cohérent</b> et une présence identifiable entre mille.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">Réserver un diagnostic →</a>
-      <a class="btn btn-ghost" href="#accompagnement">Découvrir l'accompagnement ↓</a>
+      <a class="btn btn-ghost" href="#programme">Découvrir le programme ↓</a>
     </div>
   </div>
   <div class="hero-media"><img src="p-identity-espace.jpg" alt="Un intérieur composé comme une signature"></div>
@@ -143,15 +160,63 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   </div>
 </section>
 
-<section class="leviers" id="accompagnement">
+<!-- ============ PROGRAMME · blocs cliquables ============ -->
+<section class="prog" id="programme">
   <div class="wrap">
-    <div class="eyebrow"><span class="n">02</span><span class="bar"></span>L'accompagnement</div>
-    <h2>Trois leviers pour <em>rayonner</em>.</h2>
-    <p class="intro">Un accompagnement d'exception pour bâtir une image cohérente, une parole qui marque et une confiance qui se voit dès le premier regard.</p>
-    <div class="mods">
-      <div class="mod"><div class="m-n">01</div><div><h3>Une esthétique</h3><p>Une esthétique singulière, pensée pour révéler ce qui vous rend unique — et non pour ressembler à une tendance.</p></div></div>
-      <div class="mod"><div class="m-n">02</div><div><h3>Un système</h3><p>Un système cohérent et adapté, conçu pour soutenir votre vision, votre activité et votre manière de travailler.</p></div></div>
-      <div class="mod"><div class="m-n">03</div><div><h3>Un rayonnement</h3><p>Une présence identifiable entre mille, capable d'attirer naturellement les bonnes personnes.</p></div></div>
+    <div class="eyebrow"><span class="n">02</span><span class="bar"></span>Le programme</div>
+    <h2>Un diagnostic, en <em>quatre mouvements</em>.</h2>
+    <p class="intro">Un temps dédié pour révéler votre signature et repartir avec un cap clair — une image cohérente, une parole qui marque, une confiance qui se voit dès le premier regard.</p>
+    <p class="hint">Cliquez chaque mouvement pour le découvrir</p>
+    <div class="prog-list" id="progList">
+
+      <div class="prog-item">
+        <button class="prog-head" type="button">
+          <span class="prog-n">01</span>
+          <span class="prog-title">Révéler votre singularité</span>
+          <span class="prog-tog" aria-hidden="true"></span>
+        </button>
+        <div class="prog-body"><div class="inner">
+          <p>Ce que vous faites que personne d'autre ne fait tout à fait pareil. On le nomme, noir sur blanc — pour en faire le point de départ de tout le reste.</p>
+          <span class="tag">Mouvement 01</span>
+        </div></div>
+      </div>
+
+      <div class="prog-item">
+        <button class="prog-head" type="button">
+          <span class="prog-n">02</span>
+          <span class="prog-title">Votre avantage défendable</span>
+          <span class="prog-tog" aria-hidden="true"></span>
+        </button>
+        <div class="prog-body"><div class="inner">
+          <p>Pourquoi une compétence générique ne suffit plus à faire la différence — et où se loge, précisément, ce qui rend votre approche impossible à copier.</p>
+          <span class="tag">Mouvement 02</span>
+        </div></div>
+      </div>
+
+      <div class="prog-item">
+        <button class="prog-head" type="button">
+          <span class="prog-n">03</span>
+          <span class="prog-title">Construire le système</span>
+          <span class="prog-tog" aria-hidden="true"></span>
+        </button>
+        <div class="prog-body"><div class="inner">
+          <p>Traduire votre singularité en une offre, un positionnement et une esthétique qui ne ressemblent qu'à vous — un système cohérent, pensé pour durer.</p>
+          <span class="tag">Mouvement 03</span>
+        </div></div>
+      </div>
+
+      <div class="prog-item">
+        <button class="prog-head" type="button">
+          <span class="prog-n">04</span>
+          <span class="prog-title">Le plan des 90 jours</span>
+          <span class="prog-tog" aria-hidden="true"></span>
+        </button>
+        <div class="prog-body"><div class="inner">
+          <p>Vous repartez avec une feuille de route concrète et priorisée — pas des notes que vous oublierez lundi, mais les premiers pas à engager dès cette semaine.</p>
+          <span class="tag">Mouvement 04</span>
+        </div></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -195,6 +260,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   var h=document.getElementById('siteHeader');
   function s(){ h.classList.toggle('scrolled', window.scrollY>12); }
   addEventListener('scroll',s,{passive:true}); s();
+})();
+/* accordéon programme */
+(function(){
+  var list=document.getElementById('progList'); if(!list) return;
+  list.querySelectorAll('.prog-head').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.prog-item');
+      var open=item.classList.contains('open');
+      list.querySelectorAll('.prog-item.open').forEach(function(i){ i.classList.remove('open'); });
+      if(!open) item.classList.add('open');
+    });
+  });
 })();
 </script>
 </body>
