@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Constellation — Votre signature au cœur de votre business</title>
+<title>La Constellation — Votre multiplicité, votre signature business</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@ section{padding:clamp(74px,12vw,150px) 0}
 h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;letter-spacing:-.015em;line-height:1.04}
 h1{font-size:clamp(40px,7vw,80px)}
 h2{font-size:clamp(30px,5vw,56px)}
-em{font-style:italic;font-weight:400;color:var(--gold)}
+em,i{font-style:italic;font-weight:400;color:var(--gold)}
 p{color:var(--ink-soft)}
 b{font-weight:600;color:var(--ink)}
 
@@ -45,8 +45,8 @@ header.scrolled{border-bottom-color:var(--line)}
 
 .hero{padding-top:150px;padding-bottom:0}
 .hero .kicker{font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.hero .role{font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-top:-6px;margin-bottom:30px}
 .hero h1{margin-bottom:22px;max-width:17ch}
+.hero .role{font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-top:-6px;margin-bottom:30px}
 .hero .lead{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);max-width:56ch;margin-bottom:40px}
 .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:70px}
 .btn{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;text-transform:uppercase;
@@ -59,28 +59,23 @@ header.scrolled{border-bottom-color:var(--line)}
 .hero-media img{width:100%;height:100%;object-fit:cover}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,var(--img-shade))}
 
-.reco h2{max-width:16ch;margin-bottom:60px}
-.reco-block{border-top:1px solid var(--line);padding-top:46px}
-.reco-label{font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.reco-block h3{font-size:clamp(26px,3.6vw,38px);margin-bottom:20px}
-.reco-block>p{color:var(--muted);max-width:54ch;font-size:17px;margin-bottom:44px}
-.reco-list{display:flex;flex-direction:column}
-.reco-item{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;padding:26px 0;border-top:1px solid var(--line)}
-.reco-item:last-child{border-bottom:1px solid var(--line)}
-.reco-item .ri-n{font-family:'Outfit',sans-serif;font-size:13px;letter-spacing:.14em;color:var(--faint);padding-top:5px}
-.reco-item p{color:var(--ink-soft);font-size:clamp(18px,2.3vw,23px);font-family:'Fraunces',serif;font-weight:300;line-height:1.32}
+/* ---- reconnaissance ---- */
+.reco h2{max-width:18ch;margin-bottom:40px}
+.reco .body{border-top:1px solid var(--line);padding-top:44px;max-width:64ch}
+.reco .body p{color:var(--ink-soft);font-size:clamp(17px,2vw,19px);margin-bottom:20px}
+.reco .exergue{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(21px,2.8vw,28px);line-height:1.4;color:var(--ink);margin-top:10px}
 
 /* ---- PROGRAMME (blocs cliquables) ---- */
 .prog{background:var(--bg-2)}
-.prog .intro{color:var(--muted);max-width:52ch;font-size:17px;margin-bottom:20px}
+.prog .intro{color:var(--muted);max-width:54ch;font-size:17px;margin-bottom:20px}
 .prog .hint{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:44px}
 .prog-list{border-bottom:1px solid var(--line)}
 .prog-item{border-top:1px solid var(--line)}
 .prog-head{width:100%;text-align:left;background:none;border:0;cursor:pointer;color:inherit;
   display:grid;grid-template-columns:92px 1fr 40px;gap:24px;align-items:center;padding:34px 4px;transition:padding-left .3s}
 .prog-head:hover{padding-left:14px}
-.prog-n{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(34px,5vw,48px);color:var(--gold);line-height:1}
-.prog-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(22px,3.2vw,32px);color:var(--ink)}
+.prog-n{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(30px,4.4vw,44px);color:var(--gold);line-height:1}
+.prog-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(21px,3vw,31px);color:var(--ink)}
 .prog-tog{justify-self:end;width:34px;height:34px;border:1px solid var(--line-2);border-radius:999px;position:relative;transition:.3s;flex:none}
 .prog-tog::before,.prog-tog::after{content:"";position:absolute;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);transition:.3s}
 .prog-tog::before{width:13px;height:1.5px}
@@ -88,16 +83,28 @@ header.scrolled{border-bottom-color:var(--line)}
 .prog-item.open .prog-tog{background:var(--gold);border-color:var(--gold)}
 .prog-item.open .prog-tog::before{background:var(--btn-fg)}
 .prog-item.open .prog-tog::after{opacity:0}
-.prog-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .45s ease}
-.prog-item.open .prog-body{max-height:340px;opacity:1}
-.prog-body .inner{padding:0 4px 40px calc(92px + 24px)}
-.prog-body p{color:var(--muted);font-size:clamp(16px,2vw,18px);max-width:56ch}
-.prog-body .tag{display:inline-block;margin-top:16px;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.prog-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .55s ease,opacity .45s ease}
+.prog-item.open .prog-body{opacity:1}
+.prog-body .inner{padding:0 4px 44px calc(92px + 24px)}
+.prog-body p{color:var(--muted);font-size:clamp(16px,2vw,17.5px);max-width:60ch;margin-bottom:14px}
+.prog-body .lettrine{color:var(--ink);font-size:clamp(17px,2.1vw,19px);margin-bottom:16px}
+.prog-body .exergue{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(19px,2.4vw,24px);line-height:1.42;color:var(--ink);margin:20px 0}
+.prog-body .eyebrow{display:block;font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:24px 0 10px}
+.prog-body .liste{list-style:none;margin:6px 0 6px;display:flex;flex-direction:column;gap:12px}
+.prog-body .liste li{position:relative;padding-left:26px;color:var(--ink-soft);font-size:16.5px;max-width:60ch}
+.prog-body .liste li .p{position:absolute;left:0;top:2px;color:var(--gold);font-size:11px}
+.prog-body .mvt{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;margin-top:20px}
+.prog-body .mvt .c{width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--gold)}
+.prog-body .mvt h4{font-family:'Fraunces',serif;font-weight:400;font-size:19px;color:var(--ink);margin-bottom:4px}
+.prog-body .mvt p{margin-bottom:0}
+.prog-body .chute{font-family:'Fraunces',serif;font-style:italic;color:var(--ink);font-size:18px;margin-top:18px}
+.prog-body .vide{font-style:italic;color:var(--faint);border-left:2px solid var(--line-2);padding-left:14px;margin-bottom:14px}
 @media(max-width:640px){
-  .prog-head{grid-template-columns:56px 1fr 34px;gap:14px;padding:26px 2px}
-  .prog-body .inner{padding-left:0;padding-bottom:32px}
+  .prog-head{grid-template-columns:48px 1fr 34px;gap:12px;padding:26px 2px}
+  .prog-body .inner{padding-left:0;padding-bottom:34px}
 }
 
+/* ---- réalisations ---- */
 .works h2{margin-bottom:44px;max-width:16ch}
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
 .work-grid figure{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:4px;background:var(--panel)}
@@ -105,19 +112,25 @@ header.scrolled{border-bottom-color:var(--line)}
 .work-grid figure:hover img{transform:scale(1.05)}
 .work-more{font-family:'Outfit',sans-serif;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:inline-flex;gap:10px;align-items:center}
 
-.close h2{max-width:14ch;margin-bottom:22px}
+/* ---- portrait ---- */
+.portrait .lettrine{color:var(--ink);font-family:'Fraunces',serif;font-weight:300;font-size:clamp(20px,2.6vw,26px);line-height:1.45;max-width:60ch;margin-top:6px}
+.portrait p{color:var(--muted);max-width:62ch;margin-top:20px;font-size:16.5px}
+.portrait .vide{font-style:italic;color:var(--faint);border-left:2px solid var(--line-2);padding-left:14px;margin-top:24px}
+
+/* ---- contact / footer ---- */
+.close h2{max-width:16ch;margin-bottom:22px}
 .close>.wrap>p{color:var(--muted);max-width:50ch;font-size:17px}
 .close form{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px;max-width:600px}
 .close input{flex:1;min-width:240px;background:transparent;border:0;border-bottom:1.5px solid var(--line-2);padding:16px 4px;font-family:'Outfit',sans-serif;font-size:16px;color:var(--ink);outline:none;transition:border-color .3s}
 .close input::placeholder{color:var(--faint)}
 .close input:focus{border-bottom-color:var(--gold)}
+.close .meta{display:block;margin-top:18px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
 
 footer{border-top:1px solid var(--line);padding:36px 0;font-size:13px;letter-spacing:.02em;color:var(--faint)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 @media(max-width:720px){
   .work-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .reco-item{grid-template-columns:48px 1fr;gap:12px}
   .hcta{padding:12px 16px;font-size:11px;letter-spacing:.1em}
 }
 </style>
@@ -126,7 +139,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 <header id="siteHeader">
   <a class="wordmark" href="#top">La Constellation</a>
-  <a class="hcta" href="#contact">Diagnostic →</a>
+  <a class="hcta" href="#reserver">Réserver →</a>
 </header>
 
 <main id="top">
@@ -136,28 +149,24 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <p class="kicker">Bienvenue dans ma constellation</p>
     <h1>Votre multiplicité n'est pas un obstacle,<br><em>c'est votre signature business.</em></h1>
     <p class="role">Designer de projets signature · Curatrice</p>
-    <p class="lead">J'accompagne les <b>femmes</b> qui souhaitent placer leur <b>signature personnelle</b> au cœur du business qu'elles développent — par une <b>esthétique singulière</b>, un <b>système cohérent</b> et une présence identifiable entre mille.</p>
+    <p class="lead">J'accompagne les <b>femmes aux casquettes multiples</b> à rendre lisibles leurs activités — les talents qui se croisent, les aspirations qui évoluent et les futurs encore invisibles de leur business.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Réserver un diagnostic →</a>
+      <a class="btn btn-primary" href="#reserver">Réserver un échange →</a>
       <a class="btn btn-ghost" href="#programme">Découvrir le programme ↓</a>
     </div>
   </div>
   <div class="hero-media"><img src="p-identity-espace.jpg" alt="Un intérieur composé comme une signature"></div>
 </section>
 
+<!-- reconnaissance -->
 <section class="reco" id="reco">
   <div class="wrap">
-    <div class="eyebrow"><span class="n">01</span><span class="bar"></span>Vous vous reconnaissez là-dedans</div>
-    <h2>Un même objectif : <em>oser votre signature</em>.</h2>
-    <div class="reco-block">
-      <div class="reco-label">Pour vous</div>
-      <h3>Vous êtes une femme ambitieuse</h3>
-      <p>Vous souhaitez que votre image reflète enfin votre valeur. Vous voulez tenir l'espace, poser vos choix avec élégance, et habiller votre ambition sans jamais vous trahir.</p>
-      <div class="reco-list">
-        <div class="reco-item"><span class="ri-n">01</span><p>Vous en avez assez que votre image ne dise pas votre valeur.</p></div>
-        <div class="reco-item"><span class="ri-n">02</span><p>Vous voulez une présence qui parle avant vous.</p></div>
-        <div class="reco-item"><span class="ri-n">03</span><p>Vous aspirez à un business identifiable entre mille.</p></div>
-      </div>
+    <div class="eyebrow"><span class="n">✦</span>Vous vous reconnaissez là-dedans</div>
+    <h2>Une énergie d'<em>exploratrice</em>.</h2>
+    <div class="body">
+      <p>Votre énergie — comme celle de votre activité ou de votre business — est celle d'une <b>exploratrice intuitive, créatrice, profondément libre</b>. Votre singularité : relier ce qui semble séparé, multiplier les concepts, transformer la complexité en possibilités. Vous ne cherchez pas à entrer dans le moule : vous questionnez les cadres et imaginez ce qui pourrait exister à la place.</p>
+      <p>Le problème ? Cette richesse est souvent illisible de l'extérieur — et, certains jours, pour vous-même.</p>
+      <p class="exergue">C'est exactement à cet endroit-là que nous pouvons cheminer ensemble.</p>
     </div>
   </div>
 </section>
@@ -165,57 +174,87 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <!-- ============ PROGRAMME · blocs cliquables ============ -->
 <section class="prog" id="programme">
   <div class="wrap">
-    <div class="eyebrow"><span class="n">02</span><span class="bar"></span>Le programme</div>
-    <h2>Un diagnostic, en <em>quatre mouvements</em>.</h2>
-    <p class="intro">Un temps dédié pour révéler votre signature et repartir avec un cap clair — une image cohérente, une parole qui marque, une confiance qui se voit dès le premier regard.</p>
-    <p class="hint">Cliquez chaque mouvement pour le découvrir</p>
+    <div class="eyebrow"><span class="n">✦</span>Le programme</div>
+    <h2>Comment nous <em>cheminons</em>.</h2>
+    <p class="intro">De la curation de systèmes au design de produit et de service — un chemin pour rendre votre singularité lisible, puis la déployer.</p>
+    <p class="hint">Cliquez chaque étape pour la découvrir</p>
     <div class="prog-list" id="progList">
 
       <div class="prog-item">
         <button class="prog-head" type="button">
           <span class="prog-n">01</span>
-          <span class="prog-title">Révéler votre singularité</span>
+          <span class="prog-title">L'accompagnement</span>
           <span class="prog-tog" aria-hidden="true"></span>
         </button>
         <div class="prog-body"><div class="inner">
-          <p>Ce que vous faites que personne d'autre ne fait tout à fait pareil. On le nomme, noir sur blanc — pour en faire le point de départ de tout le reste.</p>
-          <span class="tag">Mouvement 01</span>
+          <p class="lettrine">À la croisée de la curation de systèmes et du design de produit &amp; service, j'accompagne les femmes aux casquettes multiples : rendre lisibles leurs activités, les talents qui se croisent, les aspirations qui évoluent et les futurs encore invisibles de leur activité.</p>
+          <p>J'explore les interstices — là où une personne, une marque ou un projet est en train de devenir autre chose, sans encore savoir exactement quoi.</p>
+          <span class="eyebrow">L'objectif</span>
+          <p>Structurer un modèle signature pour votre activité, puis déployer un système — design et fonctionnalités sur mesure — pour en couvrir l'ensemble.</p>
+          <p class="vide">[Durée à préciser]</p>
         </div></div>
       </div>
 
       <div class="prog-item">
         <button class="prog-head" type="button">
           <span class="prog-n">02</span>
-          <span class="prog-title">Votre avantage défendable</span>
+          <span class="prog-title">L'avantage défendable</span>
           <span class="prog-tog" aria-hidden="true"></span>
         </button>
         <div class="prog-body"><div class="inner">
-          <p>Pourquoi une compétence générique ne suffit plus à faire la différence — et où se loge, précisément, ce qui rend votre approche impossible à copier.</p>
-          <span class="tag">Mouvement 02</span>
+          <p class="lettrine">L'IA reproduit désormais toute compétence générique, très rapidement et à moindre coût. Mais ce qui se ressemble reste sans valeur différenciante : c'est là que votre singularité fait toute la différence, en impact comme en désirabilité.</p>
+          <p class="exergue">Votre singularité multiple devient alors votre seul avantage défendable. Elle ne peut pas être battue par l'IA.</p>
+          <p>Encore faut-il l'avoir nommée, puis traduite en offre. C'est l'objet de ce que nous faisons ensemble : transformer votre avantage défendable en système.</p>
         </div></div>
       </div>
 
       <div class="prog-item">
         <button class="prog-head" type="button">
           <span class="prog-n">03</span>
-          <span class="prog-title">Construire le système</span>
+          <span class="prog-title">On construit le système</span>
           <span class="prog-tog" aria-hidden="true"></span>
         </button>
         <div class="prog-body"><div class="inner">
-          <p>Traduire votre singularité en une offre, un positionnement et une esthétique qui ne ressemblent qu'à vous — un système cohérent, pensé pour durer.</p>
-          <span class="tag">Mouvement 03</span>
+          <p>Nous faisons de la curation pour :</p>
+          <ul class="liste">
+            <li><span class="p">◆</span>ne garder que deux ou trois fils rouges parmi les dix que vous portez ;</li>
+            <li><span class="p">◆</span>distinguer ce qui vous appartient de ce qui vous a été assigné ;</li>
+            <li><span class="p">◆</span>retenir les offres qui tiennent debout seules ;</li>
+            <li><span class="p">◆</span>choisir vos actifs et les mots qui deviennent les vôtres — et abandonner les autres.</li>
+          </ul>
+          <span class="eyebrow">Trois mouvements</span>
+          <div class="mvt"><div class="c">1</div><div><h4>Cartographie de votre narratif</h4><p>On exhume les angles morts de votre parcours, les rôles joués, surjoués, à venir. On identifie deux fils rouges au maximum. Nous structurons de la matière à agir.</p></div></div>
+          <div class="mvt"><div class="c">2</div><div><h4>Conception</h4><p>Avec la puissance de la technologie et de l'IA — de manière frugale — nous concevons un écosystème lisible, le vôtre. Nous itérons.</p></div></div>
+          <div class="mvt"><div class="c">3</div><div><h4>Déploiement</h4><p>Nous déployons, nous testons sur des cas réels, nous ajustons.</p></div></div>
         </div></div>
       </div>
 
       <div class="prog-item">
         <button class="prog-head" type="button">
           <span class="prog-n">04</span>
-          <span class="prog-title">Le plan des 90 jours</span>
+          <span class="prog-title">Ce que vous emportez</span>
           <span class="prog-tog" aria-hidden="true"></span>
         </button>
         <div class="prog-body"><div class="inner">
-          <p>Vous repartez avec une feuille de route concrète et priorisée — pas des notes que vous oublierez lundi, mais les premiers pas à engager dès cette semaine.</p>
-          <span class="tag">Mouvement 04</span>
+          <p class="vide">[Nom du livrable — La Carte · Le Document Signature · Le Plan 90 jours]</p>
+          <ul class="liste">
+            <li><span class="p">◆</span>Votre cartographie narrative, écrite : deux fils rouges, leurs preuves, ce qu'ils excluent ;</li>
+            <li><span class="p">◆</span>L'architecture de votre système : visuel, fonctionnalités, offre principale, offres satellites, tarification ;</li>
+            <li><span class="p">◆</span>Votre lexique propriétaire : les mots qui sont les vôtres, ceux que vous cessez d'utiliser ;</li>
+            <li><span class="p">◆</span>Votre feuille de route à [90 jours].</li>
+          </ul>
+          <p class="chute">Pas des notes que vous refermerez lundi.</p>
+        </div></div>
+      </div>
+
+      <div class="prog-item">
+        <button class="prog-head" type="button">
+          <span class="prog-n">05</span>
+          <span class="prog-title">Un cas</span>
+          <span class="prog-tog" aria-hidden="true"></span>
+        </button>
+        <div class="prog-body"><div class="inner">
+          <p class="vide">[Situation initiale — ce qui a été construit — résultat à 3 ou 6 mois]</p>
         </div></div>
       </div>
 
@@ -225,7 +264,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 <section class="works" id="works">
   <div class="wrap">
-    <div class="eyebrow"><span class="n">03</span><span class="bar"></span>Réalisations</div>
+    <div class="eyebrow"><span class="n">✦</span>Réalisations</div>
     <h2>Un aperçu de <em>la constellation</em>.</h2>
     <div class="work-grid">
       <figure><img src="p-metaphysique-voie.jpg" alt="La voie"></figure>
@@ -236,15 +275,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   </div>
 </section>
 
-<section class="close" id="contact">
+<!-- portrait -->
+<section class="portrait" id="portrait">
   <div class="wrap">
-    <div class="eyebrow"><span class="n">✦</span>Entrer dans la constellation</div>
-    <h2>Prête à signer <em>votre légende</em> ?</h2>
+    <div class="eyebrow"><span class="n">✦</span>Portrait</div>
+    <p class="lettrine">Je suis Marina : une quinqua plutôt urbaine, mère aussi, contemporaine et un peu cool — quoique gentiment exigeante. Passionnée de nature et d'art sous toutes ses formes, curieuse des autres, un peu sportive. Le bon vin, évidemment, et les rencontres inspirantes comme nourriture de l'esprit.</p>
+    <p>Ma quête ? Rendre de l'autonomie et l'accès aux opportunités à des femmes multipotentielles, pour développer leur activité à la hauteur de leur valeur.</p>
+    <p>Pourquoi le prisme de l'identité compte-t-il autant pour moi ? D'origine africaine et née sous X, j'ai été adoptée ; mon enfance et mon adolescence se sont déroulées dans l'ouest de la France. De là vient un intérêt marqué pour tout ce qui touche à l'identité, adossé aux questions de business.</p>
+    <p>C'est donc assez naturellement que je me suis déplacée d'une identité construite vers une identité choisie, en devenant entrepreneuse — mais pas pour n'importe qui.</p>
+    <p>D'un parcours personnel et professionnel fait d'aspérités, de quelques chaos bien sentis et de belles phases d'introspection productive, j'ai un jour décidé de faire une œuvre plutôt qu'un business : une constellation créative.</p>
+    <p class="vide">[Formation, parcours professionnel — à compléter]</p>
+  </div>
+</section>
+
+<section class="close" id="reserver">
+  <div class="wrap">
+    <div class="eyebrow"><span class="n">✦</span>Réserver</div>
+    <h2>Saisissez l'opportunité d'être <em>différente</em>.</h2>
     <p>Laissez votre email : je vous réponds personnellement pour un premier échange, en toute confidentialité.</p>
     <form action="https://formspree.io/f/xrewnkyk" method="POST">
       <input type="email" name="email" placeholder="Votre email" required>
-      <button class="btn btn-primary" type="submit">Réserver mon diagnostic →</button>
+      <button class="btn btn-primary" type="submit">Réserver un échange →</button>
     </form>
+    <span class="meta">[Durée] · [Tarif]</span>
   </div>
 </section>
 
@@ -252,8 +305,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 <footer>
   <div class="wrap">
-    <div>La Constellation — Designer de projets signature · Curatrice</div>
-    <div>© 2026</div>
+    <div>La Constellation</div>
+    <div>Marina</div>
   </div>
 </footer>
 
@@ -263,16 +316,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   function s(){ h.classList.toggle('scrolled', window.scrollY>12); }
   addEventListener('scroll',s,{passive:true}); s();
 })();
-/* accordéon programme */
+/* accordéon programme — hauteur mesurée pour du contenu variable */
 (function(){
   var list=document.getElementById('progList'); if(!list) return;
   list.querySelectorAll('.prog-head').forEach(function(btn){
     btn.addEventListener('click',function(){
-      var item=btn.closest('.prog-item');
-      var open=item.classList.contains('open');
-      list.querySelectorAll('.prog-item.open').forEach(function(i){ i.classList.remove('open'); });
-      if(!open) item.classList.add('open');
+      var item=btn.closest('.prog-item'), body=item.querySelector('.prog-body'), on=item.classList.contains('open');
+      list.querySelectorAll('.prog-item.open').forEach(function(i){ i.classList.remove('open'); i.querySelector('.prog-body').style.maxHeight=null; });
+      if(!on){ item.classList.add('open'); body.style.maxHeight=body.scrollHeight+'px'; }
     });
+  });
+  addEventListener('resize',function(){
+    var o=list.querySelector('.prog-item.open'); if(o){ var b=o.querySelector('.prog-body'); b.style.maxHeight=b.scrollHeight+'px'; }
   });
 })();
 </script>
