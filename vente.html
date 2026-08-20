@@ -39,8 +39,8 @@ header{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:c
   border-bottom:1px solid transparent;transition:border-color .4s}
 header.scrolled{border-bottom-color:var(--line)}
 .wordmark{font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-.hcta{font-family:'Outfit',sans-serif;font-weight:500;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
-  background:var(--btn-bg);color:var(--btn-fg);padding:14px 24px;display:inline-flex;align-items:center;gap:10px;transition:transform .3s,opacity .3s}
+.hcta{font-family:'Outfit',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.25;text-align:center;max-width:210px;
+  background:var(--btn-bg);color:var(--btn-fg);padding:11px 16px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s,opacity .3s}
 .hcta:hover{transform:translateY(-1px);opacity:.92}
 
 .hero{padding-top:150px;padding-bottom:0}
@@ -49,8 +49,11 @@ header.scrolled{border-bottom-color:var(--line)}
 .hero .role{font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-top:-6px;margin-bottom:30px}
 .hero .lead{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);max-width:56ch;margin-bottom:40px}
 .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:70px}
-.btn{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:12px;padding:19px 34px;border-radius:999px;cursor:pointer;transition:transform .3s,background .3s,color .3s}
+.btn{font-family:'Outfit',sans-serif;font-weight:500;font-size:13px;letter-spacing:.05em;text-transform:uppercase;line-height:1.2;text-align:center;
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 30px;border-radius:999px;cursor:pointer;transition:transform .3s,background .3s,color .3s}
+.cta-block{display:inline-flex;flex-direction:column;gap:10px;align-items:flex-start}
+.cta-block .btn{max-width:100%}
+.cta-note{font-family:'Outfit',sans-serif;font-weight:500;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);padding-left:6px}
 .btn-primary{background:var(--btn-bg);color:var(--btn-fg);border:1px solid var(--btn-bg)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
@@ -139,7 +142,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 
 <header id="siteHeader">
   <a class="wordmark" href="#top">La Constellation</a>
-  <a class="hcta" href="#reserver">Réserver →</a>
+  <a class="hcta" href="#reserver">Saisissez l'opportunité d'être différente →</a>
 </header>
 
 <main id="top">
@@ -151,7 +154,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <p class="role">Designer de projets signature · Curatrice</p>
     <p class="lead">J'accompagne les <b>femmes aux casquettes multiples</b> à rendre lisibles leurs activités — les talents qui se croisent, les aspirations qui évoluent et les futurs encore invisibles de leur business.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#reserver">Réserver un échange →</a>
+      <span class="cta-block">
+        <a class="btn btn-primary" href="#reserver">Saisissez l'opportunité d'être différente →</a>
+        <span class="cta-note">Diagnostic</span>
+      </span>
       <a class="btn btn-ghost" href="#programme">Découvrir le programme ↓</a>
     </div>
   </div>
@@ -291,11 +297,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <section class="close" id="reserver">
   <div class="wrap">
     <div class="eyebrow"><span class="n">✦</span>Réserver</div>
-    <h2>Saisissez l'opportunité d'être <em>différente</em>.</h2>
+    <h2>Et si votre différence devenait <em>votre business</em> ?</h2>
     <p>Laissez votre email : je vous réponds personnellement pour un premier échange, en toute confidentialité.</p>
     <form action="https://formspree.io/f/xrewnkyk" method="POST">
       <input type="email" name="email" placeholder="Votre email" required>
-      <button class="btn btn-primary" type="submit">Réserver un échange →</button>
+      <span class="cta-block">
+        <button class="btn btn-primary" type="submit">Saisissez l'opportunité d'être différente →</button>
+        <span class="cta-note">Programme</span>
+      </span>
     </form>
     <span class="meta">[Durée] · [Tarif]</span>
   </div>
