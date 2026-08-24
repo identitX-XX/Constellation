@@ -70,6 +70,10 @@ header.scrolled{border-bottom-color:var(--line)}
 .reco .body{border-top:1px solid var(--line);padding-top:44px;max-width:64ch}
 .reco .body p{color:var(--ink-soft);font-size:clamp(17px,2vw,19px);margin-bottom:20px}
 .reco .exergue{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(21px,2.8vw,28px);line-height:1.4;color:var(--ink);margin-top:10px}
+.reco .plist{list-style:none;margin:18px 0 12px;display:flex;flex-direction:column;gap:14px}
+.reco .plist li{position:relative;padding-left:28px;color:var(--ink-soft);font-size:clamp(16px,1.9vw,17.5px);max-width:62ch;line-height:1.55}
+.reco .plist li::before{content:"✦";position:absolute;left:0;top:2px;color:var(--gold);font-size:12px}
+.reco .rlabel{font-weight:600;color:var(--ink)}
 
 /* ---- PROGRAMME (blocs cliquables) ---- */
 .prog{background:var(--bg-2)}
@@ -194,7 +198,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <h2>Une énergie d'<em>exploratrice</em>.</h2>
     <div class="body">
       <p>Votre énergie <span class="st">✦</span> comme celle de votre activité ou de votre business <span class="st">✦</span> est celle d'une <b>exploratrice intuitive, créatrice, profondément libre</b>. Votre singularité : relier ce qui semble séparé, multiplier les concepts, transformer la complexité en possibilités. Vous ne cherchez pas à entrer dans le moule : vous questionnez les cadres et imaginez ce qui pourrait exister à la place.</p>
-      <p>Le problème ? Cette richesse est souvent illisible de l'extérieur <span class="st">✦</span> et, certains jours, pour vous-même.</p>
+      <p>Vous avez un avantage et une valeur réels <span class="st">✦</span> mais qui s'évaporent quand :</p>
+      <ul class="plist">
+        <li>votre message ne tient pas en une phrase nette (donc personne ne sait vous recommander) ;</li>
+        <li>vos idées s'additionnent sans hiérarchie (donc rien ne devient évident) ;</li>
+        <li>votre offre reste « inspirante » mais difficile à acheter (pour qui, pour quoi, comment, à quel prix) ;</li>
+        <li>votre singularité n'a pas encore de forme visible (donc vous devez la justifier au lieu de la faire sentir) ;</li>
+        <li>votre écosystème ne porte pas votre différence (donc vous expliquez… au lieu de montrer).</li>
+      </ul>
+      <p><span class="rlabel">Résultat :</span> vous faites beaucoup <span class="st">✦</span> et l'impact ne se consolide pas.</p>
+      <p><span class="rlabel">La suite :</span> on traduit votre constellation en un narratif clair, puis en un <em>outil digital signature</em>. Un actif qui rend votre valeur <b>lisible, désirable et actionnable</b>.</p>
       <p class="exergue">C'est exactement à cet endroit-là que nous pouvons cheminer ensemble.</p>
     </div>
   </div>
