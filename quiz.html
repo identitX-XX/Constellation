@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz ✦ Quelle est votre Constellation ?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E7E5DF; --bg-2:#DDDAD2; --panel:#F1EFEA; --ink:#2A2825; --ink-soft:#4E4B47;
+  --muted:#78756F; --faint:#9B988F; --line:#D6D2C9; --line-2:#C6C1B6;
+  --gold:#A33A52; --gold-soft:#C47186; --btn-bg:#2A2825; --btn-fg:#E7E5DF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(18px,5vw,40px);
+  background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.wm{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:16px}
+.back{font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.wrap{max-width:820px;margin:0 auto;padding:36px clamp(18px,5vw,28px) 80px}
+.eyebrow{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;letter-spacing:-.02em;line-height:1.02;font-size:clamp(30px,5.4vw,50px);margin-bottom:14px}
+h1 em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--gold)}
+.lead{color:var(--muted);max-width:56ch;margin-bottom:10px}
+.lead strong{color:var(--ink);font-weight:600}
+.note{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:14px}
+.head{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:6px}
+
+.q{padding:26px 0;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.q h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:19px;letter-spacing:-.01em;margin-bottom:14px;color:var(--ink)}
+.q .qn{color:var(--gold);font-family:'Fraunces',serif;font-style:italic;padding-right:6px}
+.opts{display:grid;gap:10px}
+label.opt{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:12px;
+  cursor:pointer;background:var(--panel);transition:transform .12s,border-color .18s,background .18s;font-size:15.5px;color:var(--ink-soft)}
+label.opt:hover{transform:translateY(-1px);border-color:var(--gold-soft)}
+input[type="radio"]{margin-top:3px;accent-color:var(--gold);flex:none}
+label.opt:has(input:checked){border-color:var(--gold);background:color-mix(in srgb,var(--gold) 6%,var(--panel));color:var(--ink)}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{font-family:'Outfit',sans-serif;border:1px solid var(--btn-bg);border-radius:999px;padding:15px 26px;font-weight:500;font-size:14px;
+  letter-spacing:.04em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .2s,opacity .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--btn-bg);color:var(--btn-fg)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.progress{height:3px;background:var(--line);border-radius:999px;overflow:hidden;margin:22px 0 4px}
+.progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.error{color:var(--gold);font-weight:600;margin-top:14px;display:none}
+
+.result{display:none;margin-top:30px}
+.result .pill{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line-2);border-radius:999px;padding:7px 14px;margin-bottom:16px}
+.result h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;margin-bottom:16px}
+.result p{color:var(--ink-soft);margin-bottom:12px;max-width:60ch}
+.result p strong{color:var(--ink)}
+.reco-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:22px 0}
+.reco-card .k{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.reco-card h3{font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:22px;color:var(--ink);margin-bottom:10px}
+.mailcap{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px}
+.mailcap .k{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.mailcap p{color:var(--muted);font-size:14.5px;margin-bottom:16px;max-width:52ch}
+.mailform{display:flex;flex-wrap:wrap;gap:12px}
+.mailform input[type=email]{flex:1;min-width:220px;background:transparent;border:0;border-bottom:1.5px solid var(--line-2);padding:14px 4px;
+  font-family:'Outfit',sans-serif;font-size:16px;color:var(--ink);outline:none;transition:border-color .3s}
+.mailform input[type=email]:focus{border-bottom-color:var(--gold)}
+.mailform input::placeholder{color:var(--faint)}
+.thanks{display:none;color:var(--ink);font-family:'Fraunces',serif;font-style:italic;font-size:18px;margin-top:8px}
+.small{font-size:13px;color:var(--muted);margin-top:14px}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="wm" href="vente.html">La Constellation</a>
+  <a class="back" href="vente.html">← Retour</a>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <p class="eyebrow">Quiz ✦ 2 minutes</p>
+    <h1>Quelle est votre <em>Constellation</em> ?</h1>
+    <p class="lead">Choisissez la réponse qui vous ressemble le plus <strong>en ce moment</strong>. Ne cherchez pas la « meilleure » réponse : cherchez la plus vraie.</p>
+    <p class="note">8 questions · résultat + recommandation d'outil</p>
+  </div>
+
+  <form id="quiz">
+    <div class="q" data-q="1"><h2><span class="qn">Q1</span>Quand vous parlez de ce que vous faites…</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q1" value="A">Je pars dans plusieurs directions : je vois tout, je perds le fil.</label>
+      <label class="opt"><input type="radio" name="q1" value="B">J'explique bien, mais on ne comprend pas ma différence.</label>
+      <label class="opt"><input type="radio" name="q1" value="C">On comprend… mais ça ne déclenche pas l'achat.</label>
+      <label class="opt"><input type="radio" name="q1" value="D">C'est juste, mais trop subtil : pas assez simple.</label>
+    </div></div>
+
+    <div class="q" data-q="2"><h2><span class="qn">Q2</span>Votre blocage principal aujourd'hui, c'est…</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q2" value="A">Choisir une direction sans renier le reste.</label>
+      <label class="opt"><input type="radio" name="q2" value="B">Organiser mon offre comme un système cohérent.</label>
+      <label class="opt"><input type="radio" name="q2" value="C">Transformer mon expertise en parcours qui convertit.</label>
+      <label class="opt"><input type="radio" name="q2" value="D">Dire simplement, sans trahir ma nuance.</label>
+    </div></div>
+
+    <div class="q" data-q="3"><h2><span class="qn">Q3</span>Votre communication ressemble plutôt à…</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q3" value="A">Des éclairs géniaux, irréguliers.</label>
+      <label class="opt"><input type="radio" name="q3" value="B">Des contenus utiles, mais « sans signature ».</label>
+      <label class="opt"><input type="radio" name="q3" value="C">Un univers fort, mais une vente floue.</label>
+      <label class="opt"><input type="radio" name="q3" value="D">Des textes profonds, parfois trop longs.</label>
+    </div></div>
+
+    <div class="q" data-q="4"><h2><span class="qn">Q4</span>La phrase que vous entendez souvent :</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q4" value="A">« Tu es brillante, mais je suis perdue. »</label>
+      <label class="opt"><input type="radio" name="q4" value="B">« C'est clair… mais tu pourrais faire plein de choses. »</label>
+      <label class="opt"><input type="radio" name="q4" value="C">« J'adore ton univers. Je ne sais pas par où commencer. »</label>
+      <label class="opt"><input type="radio" name="q4" value="D">« Tu mets des mots sur ce que je ressens. »</label>
+    </div></div>
+
+    <div class="q" data-q="5"><h2><span class="qn">Q5</span>Si on créait un actif qui travaille pour vous, ce serait…</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q5" value="A">Un quiz qui révèle votre fil rouge et oriente.</label>
+      <label class="opt"><input type="radio" name="q5" value="B">Un mini-système / app légère / espace no-code.</label>
+      <label class="opt"><input type="radio" name="q5" value="C">Une page de vente + parcours d'onboarding fluide.</label>
+      <label class="opt"><input type="radio" name="q5" value="D">Une expérience narrative (mini-site / vidéo / éditorial) avec CTA clair.</label>
+    </div></div>
+
+    <div class="q" data-q="6"><h2><span class="qn">Q6</span>Votre relation à la niche :</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q6" value="A">Allergie : peur de m'enfermer.</label>
+      <label class="opt"><input type="radio" name="q6" value="B">OK si c'est un angle, pas une prison.</label>
+      <label class="opt"><input type="radio" name="q6" value="C">OK si ça sert la vente et la clarté.</label>
+      <label class="opt"><input type="radio" name="q6" value="D">Je veux une signature, pas une case.</label>
+    </div></div>
+
+    <div class="q" data-q="7"><h2><span class="qn">Q7</span>Votre offre aujourd'hui est…</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q7" value="A">Trop de formats, trop d'options.</label>
+      <label class="opt"><input type="radio" name="q7" value="B">Plutôt claire, mais pas assez « désirable ».</label>
+      <label class="opt"><input type="radio" name="q7" value="C">Désirable, mais pas structurée pour convertir.</label>
+      <label class="opt"><input type="radio" name="q7" value="D">Très juste, mais difficile à expliquer vite.</label>
+    </div></div>
+
+    <div class="q" data-q="8"><h2><span class="qn">Q8</span>Votre priorité dans les 90 prochains jours :</h2><div class="opts">
+      <label class="opt"><input type="radio" name="q8" value="A">Fixer mon identité business (fils rouges + message).</label>
+      <label class="opt"><input type="radio" name="q8" value="B">Construire un outil / système (architecture + fonctionnalités).</label>
+      <label class="opt"><input type="radio" name="q8" value="C">Vendre mieux (parcours + page + CTA).</label>
+      <label class="opt"><input type="radio" name="q8" value="D">Déployer une signature (ton, lexique, expérience).</label>
+    </div></div>
+
+    <div class="progress"><i id="bar"></i></div>
+    <div class="actions">
+      <button type="button" class="btn primary" id="submitBtn">Voir mon résultat →</button>
+      <button type="reset" class="btn ghost" id="resetBtn">Réinitialiser</button>
+    </div>
+    <div class="error" id="error">Il manque au moins une réponse — complétez les 8 questions.</div>
+  </form>
+
+  <section id="result" class="result" aria-live="polite">
+    <span class="pill" id="resultPill">Résultat</span>
+    <h2 id="resultTitle"></h2>
+    <p id="resultReading"></p>
+    <p id="resultRisk"></p>
+    <p id="resultLever"></p>
+
+    <div class="reco-card">
+      <div class="k">Outil digital signature recommandé</div>
+      <h3 id="resultTool"></h3>
+      <p id="resultWhy"></p>
+    </div>
+
+    <div class="mailcap">
+      <div class="k">Recevez votre recommandation</div>
+      <p>Je vous envoie votre profil, l'outil recommandé et son plan de déploiement — et je reviens vers vous personnellement.</p>
+      <form class="mailform" id="mailform" action="https://formspree.io/f/xrewnkyk" method="POST">
+        <input type="hidden" name="profil" id="fProfil">
+        <input type="hidden" name="reponses" id="fReponses">
+        <input type="hidden" name="objet" value="Résultat quiz Constellation">
+        <input type="email" name="email" placeholder="Votre email" required>
+        <button class="btn primary" type="submit">Recevoir + être recontactée →</button>
+      </form>
+      <p class="thanks" id="thanks">Merci ✦ votre recommandation arrive, je vous réponds très vite.</p>
+    </div>
+
+    <div class="actions" style="margin-top:22px">
+      <button class="btn ghost" id="restartBtn" type="button">Recommencer le quiz</button>
+    </div>
+    <p class="small">8 questions · résultat immédiat · confidentiel.</p>
+  </section>
+</div>
+
+<script>
+const results = {
+  A:{pill:"Constellation A",title:"L'Exploratrice",
+     reading:"Vous n'avez pas un problème d'idées. Vous avez un problème de direction assumée.",
+     risk:"Rester brillante… mais difficile à suivre, et donc difficile à acheter.",
+     lever:"Fixer 2–3 fils rouges, puis les matérialiser dans un outil qui oriente.",
+     tool:"Quiz de positionnement + page de résultats + CTA",
+     why:"Parce qu'il transforme votre richesse en lecture immédiate et qualifie vos clientes à votre place."},
+  B:{pill:"Constellation B",title:"L'Architecte",
+     reading:"Vous êtes faite pour structurer. Vous avez besoin d'un actif visible, pas d'une idée de plus.",
+     risk:"Rester dans la complexité interne au lieu de rendre votre valeur évidente.",
+     lever:"Un système simple, déployé, itératif — qui soutient l'offre et la vente.",
+     tool:"Mini-système no-code / app légère / espace client-outil",
+     why:"Parce que vous gagnez en lisibilité, en répétabilité et en valeur perçue."},
+  C:{pill:"Constellation C",title:"La Messagère",
+     reading:"Vous attirez. Le manque n'est pas l'univers : c'est la mise en vente.",
+     risk:"Inspirer… sans convertir.",
+     lever:"Un parcours qui montre, guide, puis propose — avec un point d'entrée net.",
+     tool:"Page de vente signature + onboarding + séquence de conversion",
+     why:"Parce que vous n'expliquez plus : vous faites traverser une expérience claire."},
+  D:{pill:"Constellation D",title:"L'Alchimiste",
+     reading:"Votre talent, c'est la nuance et le sens. Votre enjeu, c'est la lisibilité.",
+     risk:"Être comprise « en profondeur »… mais trop tard.",
+     lever:"Une expérience qui fait ressentir vite + un CTA net.",
+     tool:"Mini-site narratif / vidéo concept / expérience éditoriale",
+     why:"Parce que votre signature se ressent immédiatement, sans justification interminable."}
+};
+
+let lastAnswers=[];
+function getAnswer(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:null;}
+function updateBar(){let n=0;for(let i=1;i<=8;i++){if(getAnswer("q"+i))n++;}document.getElementById("bar").style.width=(n/8*100)+"%";}
+document.getElementById("quiz").addEventListener("change",updateBar);
+
+function computeResult(){
+  const answers=[];
+  for(let i=1;i<=8;i++){const v=getAnswer("q"+i);if(!v)return{ok:false};answers.push(v);}
+  lastAnswers=answers;
+  const counts={A:0,B:0,C:0,D:0};answers.forEach(v=>counts[v]++);
+  const max=Math.max(counts.A,counts.B,counts.C,counts.D);
+  const top=Object.keys(counts).filter(k=>counts[k]===max);
+  const tie=answers[1];
+  const letter=(top.length===1)?top[0]:(top.includes(tie)?tie:top[0]);
+  return{ok:true,letter};
+}
+function renderResult(letter){
+  const r=results[letter];
+  document.getElementById("resultPill").textContent=r.pill;
+  document.getElementById("resultTitle").textContent=r.title;
+  document.getElementById("resultReading").innerHTML="<strong>Lecture :</strong> "+r.reading;
+  document.getElementById("resultRisk").innerHTML="<strong>Risque :</strong> "+r.risk;
+  document.getElementById("resultLever").innerHTML="<strong>Levier :</strong> "+r.lever;
+  document.getElementById("resultTool").textContent=r.tool;
+  document.getElementById("resultWhy").textContent=r.why;
+  document.getElementById("fProfil").value=r.pill+" — "+r.title;
+  document.getElementById("fReponses").value=lastAnswers.join("");
+  document.getElementById("result").style.display="block";
+  document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.getElementById("submitBtn").addEventListener("click",function(){
+  const out=computeResult();
+  if(!out.ok){document.getElementById("error").style.display="block";return;}
+  document.getElementById("error").style.display="none";
+  renderResult(out.letter);
+});
+document.getElementById("restartBtn").addEventListener("click",function(){
+  document.getElementById("quiz").reset();updateBar();
+  document.getElementById("result").style.display="none";
+  document.getElementById("error").style.display="none";
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+document.getElementById("mailform").addEventListener("submit",function(e){
+  try{
+    fetch(this.action,{method:"POST",body:new FormData(this),headers:{Accept:"application/json"}}).catch(function(){});
+  }catch(err){}
+  e.preventDefault();
+  this.style.display="none";
+  document.getElementById("thanks").style.display="block";
+});
+</script>
+</body>
+</html>
