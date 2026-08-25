@@ -252,11 +252,22 @@ document.getElementById("restartBtn").addEventListener("click",function(){
   document.getElementById("error").style.display="none";
   window.scrollTo({top:0,behavior:"smooth"});
 });
+/* ⬇️ COLLE ICI TON LIEN DE RÉSERVATION (Calendly / Cal.com). Vide = message de confirmation. */
+const BOOKING_URL = "";  // ex : "https://calendly.com/ton-agenda/appel-diagnostic"
+
 document.getElementById("mailform").addEventListener("submit",function(e){
-  try{
-    fetch(this.action,{method:"POST",body:new FormData(this),headers:{Accept:"application/json"}}).catch(function(){});
-  }catch(err){}
   e.preventDefault();
+  // 1) on enregistre l'email + le profil (liste)
+  try{ fetch(this.action,{method:"POST",body:new FormData(this),headers:{Accept:"application/json"}}).catch(function(){}); }catch(err){}
+  var email=(this.querySelector('input[name="email"]')||{}).value||"";
+  var profil=document.getElementById("fProfil").value||"";
+  // 2) si agenda branché : ouverture directe avec l'email + le profil transmis
+  if(BOOKING_URL){
+    var sep=BOOKING_URL.indexOf("?")>-1?"&":"?";
+    window.location.href=BOOKING_URL+sep+"email="+encodeURIComponent(email)+"&utm_content="+encodeURIComponent(profil);
+    return;
+  }
+  // 3) sinon : message de confirmation
   this.style.display="none";
   document.getElementById("thanks").style.display="block";
 });
