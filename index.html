@@ -40,8 +40,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:c
   border-bottom:1px solid transparent;transition:border-color .4s}
 header.scrolled{border-bottom-color:var(--line)}
 .topnav{display:flex;gap:clamp(18px,2.4vw,30px)}
-.topnav a{font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);transition:color .25s}
-.topnav a:hover{color:var(--gold)}
+.topnav a{font-family:'Outfit',sans-serif;font-weight:400;font-size:13.5px;letter-spacing:.01em;color:var(--muted);position:relative;padding:6px 0;transition:color .25s}
+.topnav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.topnav a:hover{color:var(--ink)}
+.topnav a:hover::after{width:100%}
 .navtog{display:none;font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:none;border:1px solid var(--line-2);border-radius:999px;padding:9px 15px;cursor:pointer}
 @media(max-width:720px){.navtog{display:inline-block}.topnav{position:fixed;top:60px;right:clamp(12px,4vw,22px);flex-direction:column;gap:2px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:200px;box-shadow:0 14px 34px rgba(42,40,37,.14);display:none}.topnav.open{display:flex}.topnav a{padding:12px 14px}}
 .wordmark{font-family:'Fraunces',serif;font-weight:500;font-size:21px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
@@ -166,6 +168,13 @@ header.scrolled{border-bottom-color:var(--line)}
 
 /* ---- portrait ---- */
 .portrait .lettrine{color:var(--ink);font-family:'Fraunces',serif;font-weight:300;font-size:clamp(20px,2.6vw,26px);line-height:1.45;max-width:60ch;margin-top:6px}
+.portrait .idcard{border-top:1px solid var(--line);margin:6px 0 26px;max-width:66ch}
+.portrait .idrow{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.portrait .idk{font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);padding-top:3px}
+.portrait .idv{color:var(--ink-soft);font-size:16.5px;line-height:1.5}
+.portrait .idv .x{font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:20px}
+.portrait .mission{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(19px,2.6vw,26px);line-height:1.5;color:var(--ink);max-width:28ch;margin:0 0 36px}
+@media(max-width:560px){.portrait .idrow{grid-template-columns:1fr;gap:4px}}
 .portrait p{color:var(--muted);max-width:62ch;margin-top:20px;font-size:16.5px}
 .portrait .vide{font-style:italic;color:var(--faint);border-left:2px solid var(--line-2);padding-left:14px;margin-top:24px}
 .portrait .exergue{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.6vw,27px);line-height:1.4;color:var(--ink);max-width:24ch;margin:24px 0}
@@ -195,11 +204,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <header id="siteHeader">
   <button class="navtog" id="navtog" aria-label="Menu" aria-expanded="false">Menu</button>
   <nav class="topnav" id="topnav">
+    <a href="#top">Accueil</a>
     <a href="#portrait">Qui suis-je</a>
-    <a href="#programme">Le programme</a>
-    <a href="#works">Réalisations</a>
-    <a href="#reserver">Réserver</a>
-    <a href="quiz.html">Le quiz</a>
+    <a href="portfolio.html#lab">Le Lab</a>
+    <a href="portfolio.html#portfolio">Portfolio</a>
+    <a href="portfolio.html#event">Événement</a>
+    <a href="portfolio.html#contact">Contact</a>
   </nav>
 </header>
 
@@ -381,6 +391,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 <section class="portrait" id="portrait">
   <div class="wrap">
     <div class="eyebrow"><span class="n">✦</span>Qui suis-je</div>
+    <div class="idcard">
+      <div class="idrow"><span class="idk">Rôle</span><span class="idv">Venture builder · product designer · curatrice</span></div>
+      <div class="idrow"><span class="idk">Origine</span><span class="idv"><span class="x">X</span></span></div>
+      <div class="idrow"><span class="idk">J'aime</span><span class="idv">les histoires <span class="st">✦</span> les grands appartements <span class="st">✦</span> les fulgurances de l'esprit <span class="st">✦</span> la justesse <span class="st">✦</span> les transitions <span class="st">✦</span> l'art tout azimut</span></div>
+    </div>
+    <p class="mission">Ma mission : explorer les multivers identitaires <span class="st">✦</span> et donner aux vies plurielles les moyens de signer leur légende.</p>
     <p class="lettrine">Je m'appelle Marina, et je suis plutôt créative, visionnaire, et profondément connectée à la nature, aux sens, à tout ce qui m'entoure en général. J'ai toujours avancé avec l'idée que la vie est un vaste terrain de jeu dont les règles peuvent se renouveler chaque jour.</p>
     <p>J'ai une passion, mon époque, pour la nature, la musique, la littérature, la peinture, la rando, les neurosciences, le mouvement, et le business.</p>
     <p>Pendant des années, entre Paris, Luxembourg et Londres, j'ai géré des risques de prototypes. Des objets qui n'existaient pas encore, des budgets de plusieurs millions, des équipes, des actifs et des projets d'envergure. Mon métier, c'était d'évaluer et d'arbitrer l'aléa. Projeter, ce qui n'avait pas encore de mode d'emploi.</p>
