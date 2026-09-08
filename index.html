@@ -174,6 +174,7 @@ header.scrolled{border-bottom-color:var(--line)}
 .close input::placeholder{color:var(--faint)}
 .close input:focus{border-bottom-color:var(--gold)}
 .close .meta{display:block;margin-top:18px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.close .form-msg{margin-top:22px;font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--gold);font-size:clamp(18px,2.2vw,22px)}
 
 footer{border-top:1px solid var(--line);padding:36px 0;font-size:13px;letter-spacing:.02em;color:var(--faint)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
@@ -385,13 +386,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
     <div class="eyebrow"><span class="n">✦</span>Réserver</div>
     <h2>Et si votre différence devenait <em>votre business</em> ?</h2>
     <p>Laissez votre email : je vous réponds personnellement pour un premier échange, en toute confidentialité.</p>
-    <form action="https://formspree.io/f/xrewnkyk" method="POST">
+    <form id="reserverForm" action="https://formspree.io/f/xrewnkyk" method="POST">
       <input type="email" name="email" placeholder="Votre email" required>
       <span class="cta-block">
         <button class="btn btn-primary" type="submit">Saisissez l'opportunité d'être différente →</button>
         <span class="cta-note">Programme</span>
       </span>
     </form>
+    <p class="form-msg" id="reserverMsg" hidden></p>
     <span class="meta">[Durée] · [Tarif]</span>
   </div>
 </section>
@@ -423,6 +425,33 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   });
   addEventListener('resize',function(){
     var o=list.querySelector('.prog-item.open'); if(o){ var b=o.querySelector('.prog-body'); b.style.maxHeight=b.scrollHeight+'px'; }
+  });
+})();
+
+/* ---- capture email : Supabase (leads) + notification Formspree ---- */
+(function(){
+  var SB_URL="https://pdbnfsisugzrgvdqksce.supabase.co";
+  var SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkYm5mc2lzdWd6cmd2ZHFrc2NlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxNjM3NTUsImV4cCI6MjEwMDczOTc1NX0.Qf2BlJkGh0YVM6HsPBV870a4QKTR3eqe1J0sJ9WGpqE";
+  var FORMSPREE="https://formspree.io/f/xrewnkyk";
+  window.__saveLead=function(email,source,profil){
+    return fetch(SB_URL+"/rest/v1/leads",{method:"POST",
+      headers:{"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      body:JSON.stringify({email:email,source:source,profil:profil||null})});
+  };
+  window.__notify=function(email,source){
+    var fd=new FormData(); fd.append("email",email); fd.append("source",source);
+    return fetch(FORMSPREE,{method:"POST",headers:{"Accept":"application/json"},body:fd});
+  };
+  var f=document.getElementById("reserverForm"); if(!f) return;
+  var msg=document.getElementById("reserverMsg");
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var input=f.querySelector('input[name="email"]');
+    var email=((input&&input.value)||"").trim(); if(!email) return;
+    var btn=f.querySelector('button[type="submit"]'); if(btn){btn.disabled=true;}
+    Promise.allSettled([window.__saveLead(email,"reserver"),window.__notify(email,"reserver")]).then(function(){
+      f.hidden=true; if(msg){ msg.textContent="Merci \u2726 votre email est bien enregistr\u00e9. Je vous r\u00e9ponds tr\u00e8s vite."; msg.hidden=false; }
+    });
   });
 })();
 </script>

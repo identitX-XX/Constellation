@@ -255,12 +255,16 @@ document.getElementById("restartBtn").addEventListener("click",function(){
 /* ⬇️ COLLE ICI TON LIEN DE RÉSERVATION (Calendly / Cal.com). Vide = message de confirmation. */
 const BOOKING_URL = "";  // ex : "https://calendly.com/ton-agenda/appel-diagnostic"
 
+const SB_URL="https://pdbnfsisugzrgvdqksce.supabase.co";
+const SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkYm5mc2lzdWd6cmd2ZHFrc2NlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxNjM3NTUsImV4cCI6MjEwMDczOTc1NX0.Qf2BlJkGh0YVM6HsPBV870a4QKTR3eqe1J0sJ9WGpqE";
 document.getElementById("mailform").addEventListener("submit",function(e){
   e.preventDefault();
-  // 1) on enregistre l'email + le profil (liste)
-  try{ fetch(this.action,{method:"POST",body:new FormData(this),headers:{Accept:"application/json"}}).catch(function(){}); }catch(err){}
   var email=(this.querySelector('input[name="email"]')||{}).value||"";
   var profil=document.getElementById("fProfil").value||"";
+  // 1a) notification email (Formspree)
+  try{ fetch(this.action,{method:"POST",body:new FormData(this),headers:{Accept:"application/json"}}).catch(function(){}); }catch(err){}
+  // 1b) enregistrement dans la base (Supabase)
+  try{ fetch(SB_URL+"/rest/v1/leads",{method:"POST",headers:{"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({email:email,source:"quiz",profil:profil||null})}).catch(function(){}); }catch(err){}
   // 2) si agenda branché : ouverture directe avec l'email + le profil transmis
   if(BOOKING_URL){
     var sep=BOOKING_URL.indexOf("?")>-1?"&":"?";
