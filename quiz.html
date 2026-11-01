@@ -27,6 +27,10 @@ h1 em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(-
 .lead{color:var(--muted);max-width:56ch;margin-bottom:10px}
 .lead strong{color:var(--ink);font-weight:600}
 .note{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:14px}
+.situations{list-style:none;margin:18px 0 6px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;max-width:62ch}
+@media(max-width:560px){.situations{grid-template-columns:1fr}}
+.situations li{position:relative;padding-left:22px;color:var(--ink-soft);font-size:15px;line-height:1.4}
+.situations li::before{content:"✦";position:absolute;left:0;top:1px;color:var(--gold);font-size:11px}
 .head{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:6px}
 
 .q{padding:26px 0;border-top:1px solid var(--line)}
@@ -78,10 +82,18 @@ label.opt:has(input:checked){border-color:var(--gold);background:color-mix(in sr
 
 <div class="wrap">
   <div class="head">
-    <p class="eyebrow">Quiz ✦ 2 minutes</p>
+    <p class="eyebrow">Femmes de 45 à 60 ans ✦ en transformation</p>
     <h1>Quelle est votre <em>Constellation</em> ?</h1>
-    <p class="lead">Choisissez la réponse qui vous ressemble le plus <strong>en ce moment</strong>. Ne cherchez pas la « meilleure » réponse : cherchez la plus vraie.</p>
-    <p class="note">8 questions · résultat + recommandation d'outil</p>
+    <p class="lead">Ce quiz s'adresse aux <strong>femmes de 45 à 60 ans</strong> qui traversent un moment de transformation. En 2 minutes, situez où vous en êtes — et par quoi commencer.</p>
+    <ul class="situations">
+      <li>Séparation ou reconstruction personnelle</li>
+      <li>Reconversion ou repositionnement professionnel</li>
+      <li>Perte de sens et changement de trajectoire</li>
+      <li>Multiplicité des talents et des aspirations</li>
+      <li>Construction d'un nouveau projet de vie</li>
+      <li>Passage d'une identité à une autre</li>
+    </ul>
+    <p class="note">8 questions · résultat + recommandation</p>
   </div>
 
   <form id="quiz">
