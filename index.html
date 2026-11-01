@@ -230,6 +230,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 .pf-b .acc{fill:none;stroke:var(--pf-accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .pf-b .rose{fill:var(--pf-accent);stroke:none}.pf-b .blush{fill:var(--pf-accent-soft);stroke:none;opacity:.5}
 .pf-b .hair{fill:none;stroke:var(--pf-ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+.transition h2{max-width:16ch;margin-bottom:8px}
+.transition .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px 44px;border-top:1px solid var(--line);padding-top:40px;margin:36px 0 36px}
+@media(max-width:640px){.transition .tgrid{grid-template-columns:1fr;gap:24px}}
+.transition .titem h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(17px,2vw,19px);color:var(--ink);margin-bottom:8px}
+.transition .titem p{color:var(--ink-soft);font-size:15.5px;line-height:1.55;max-width:46ch}
+.transition .exergue{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.6vw,27px);line-height:1.4;color:var(--ink);max-width:42ch}
 </style>
 </head>
 <body>
@@ -311,6 +318,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
 </section>
 
 <!-- ============ PROGRAMME · blocs cliquables ============ -->
+<section class="transition" id="transition">
+  <div class="wrap">
+    <div class="eyebrow"><span class="n">✦</span>La traversée</div>
+    <h2>Comment appréhender <em>cette transition</em>.</h2>
+    <div class="tgrid">
+      <div class="titem"><h4>Rester souple, pas fragile.</h4><p>Dans la tempête d'une transition, la rigidité casse ; la souplesse tient. Garder l'esprit ouvert aux routes imprévues, sans se laisser emporter.</p></div>
+      <div class="titem"><h4>Une boussole, pas un plan.</h4><p>On ne planifie pas une renaissance au cordeau. Un cap, quelques repères sûrs, et la liberté d'ajuster à chaque virage.</p></div>
+      <div class="titem"><h4>S'appuyer sur ce qui est déjà là.</h4><p>Vos talents, vos traversées, vos acquis ne disparaissent pas dans le changement : ils deviennent la matière de la suite.</p></div>
+      <div class="titem"><h4>Avancer par petits pas éprouvés.</h4><p>Tester en conditions réelles, à petite échelle. Chaque pas confirmé rend le suivant plus simple <span class="st">✦</span> et la tempête redevient un paysage.</p></div>
+    </div>
+    <p class="exergue">La transition n'est pas ce qui vous arrive. C'est ce que vous en faites <span class="st">✦</span> et ce que vous devenez en la traversant.</p>
+  </div>
+</section>
+
 <div class="scene-sep" role="img" aria-label="L'Architecte"><svg class="scene" viewBox="0 0 440 210" fill="none"><g transform="translate(-72.4,15.399999999999991) scale(0.92)"><path class="hair" d="M200 82 Q172 104 182 152 Q186 178 206 188"/><path class="hair" d="M240 82 Q268 104 258 152 Q254 178 234 188"/><path class="hair" d="M203 76 Q220 68 237 76"/><path class="hair" d="M196 96 Q184 128 196 158"/><path class="hair" d="M244 96 Q256 128 244 160"/><path class="ln" d="M198 100 Q198 74 220 74 Q242 74 242 100 Q242 128 220 136 Q198 128 198 100 Z"/><path class="ln" d="M206 98 Q210 101 214 98"/><path class="ln" d="M226 98 Q230 101 234 98"/><path class="acc" d="M212 112 Q220 118 228 111"/><ellipse class="blush" cx="207" cy="107" rx="4" ry="2.6"/><ellipse class="blush" cx="233" cy="107" rx="4" ry="2.6"/><circle class="rose" cx="220" cy="84" r="1.6"/></g><path class="ln" d="M258 156 L400 156"/><path class="ln" d="M280 156 L280 96 Q330 66 380 96 L380 156"/><path class="ln" d="M296 156 L296 112 L364 112 L364 156"/><path class="acc" d="M250 156 L316 156 L250 104 Z"/><circle class="ln" cx="344" cy="60" r="3"/><path class="ln" d="M344 62 L330 108"/><path class="ln" d="M344 62 L358 108"/><path class="acc" d="M330 108 Q344 118 358 108"/><path class="star" d="M408 57 L410 62 L415 64 L410 66 L408 71 L406 66 L401 64 L406 62 Z"/><circle class="rose" cx="250" cy="70" r="2"/></svg></div>
 <section class="prog" id="programme">
   <div class="wrap">
@@ -436,7 +457,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
   <div class="wrap">
     <div class="eyebrow"><span class="n">✦</span>Réserver</div>
     <h2>Et si votre différence devenait <em>votre business</em> ?</h2>
-    <p>Laissez votre email : je vous réponds personnellement pour un premier échange, en toute confidentialité.</p>
+    <p>Vous êtes à un tournant ? Laissez votre email : je vous réponds personnellement pour un premier échange, en toute confidentialité.</p>
     <form id="reserverForm" action="https://formspree.io/f/xrewnkyk" method="POST">
       <input type="email" name="email" placeholder="Votre email" required>
       <span class="cta-block">
