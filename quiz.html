@@ -69,6 +69,12 @@ label.opt:has(input:checked){border-color:var(--gold);background:color-mix(in sr
 .strat-steps li{display:flex;flex-direction:column;gap:3px}
 .strat-steps li strong{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:15.5px;color:var(--ink)}
 .strat-steps li span{color:var(--ink-soft);font-size:14.5px;line-height:1.5}
+.strat-steps li .smeta{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.strat-steps li .smeta i{font-style:normal;font-family:'Outfit',sans-serif;font-size:11.5px;line-height:1.35;letter-spacing:.01em;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink-soft)}
+.strat-steps li .smeta i b{font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-size:10px;margin-right:4px}
+.strat-steps li .smeta i.dur{color:var(--ink);font-weight:500}
+.strat-steps li .smeta i.kpi{background:color-mix(in srgb,var(--gold) 9%,var(--panel));border-color:var(--gold-soft);color:var(--gold)}
+.strat-steps li .smeta i.kpi b{color:var(--gold)}
 .strat-kpi{color:var(--ink-soft);font-size:14.5px;border-top:1px solid var(--line);padding-top:12px}
 .strat-kpi strong{color:var(--ink)}
 .mailcap{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:22px}
@@ -217,25 +223,25 @@ const results = {
      risk:"Rester brillante… mais difficile à suivre, et donc difficile à acheter.",
      lever:"Fixer 2–3 fils rouges, puis les matérialiser dans un outil qui oriente.",
      tool:"Quiz de positionnement + page de résultats + CTA",
-     why:"Parce qu'il transforme votre richesse en lecture immédiate et qualifie vos clientes à votre place.",strategy:{direction:"Transformer votre richesse d'idées en une direction unique, lisible et vendable.",steps:[{t:"1 · Curation & fil rouge",d:"On retient 2 à 3 fils rouges, on écarte le reste. Livrable : une carte de positionnement claire."},{t:"2 · Matérialisation",d:"Un outil de positionnement (quiz + page de résultats) qui oriente votre cliente. Livrable : l'actif en ligne."},{t:"3 · Qualification & mise en vente",d:"CTA, séquence, premiers cas réels. Livrable : un tunnel qui qualifie à votre place."}],kpi:"Cap à 90 jours : un message qui tient en une phrase, et un premier flux de clientes qualifiées."}},
+     why:"Parce qu'il transforme votre richesse en lecture immédiate et qualifie vos clientes à votre place.",strategy:{direction:"Transformer votre richesse d'idées en une direction unique, lisible et vendable.",steps:[{t:"1 · Curation & fil rouge",d:"On retient 2 à 3 fils rouges, on écarte le reste. Livrable : une carte de positionnement claire.",dur:"Semaines 1–2",jalon:"Les 3 fils rouges sont écrits et arbitrés.",kpi:"1 phrase de positionnement validée"},{t:"2 · Matérialisation",d:"Un outil de positionnement (quiz + page de résultats) qui oriente votre cliente. Livrable : l'actif en ligne.",dur:"Semaines 3–6",jalon:"L'outil est en ligne et testé par 5 personnes.",kpi:"≥ 80 % comprennent l'offre au 1er coup d'œil"},{t:"3 · Qualification & mise en vente",d:"CTA, séquence, premiers cas réels. Livrable : un tunnel qui qualifie à votre place.",dur:"Semaines 7–12",jalon:"Le tunnel qualifie seul, sans vous.",kpi:"≥ 20 leads qualifiés / mois"}],kpi:"Cap à 90 jours : un message qui tient en une phrase, et un premier flux de clientes qualifiées."}},
   B:{pill:"Constellation B",title:"L'Architecte",
      reading:"Vous êtes faite pour structurer. Vous avez besoin d'un actif visible, pas d'une idée de plus.",
      risk:"Rester dans la complexité interne au lieu de rendre votre valeur évidente.",
      lever:"Un système simple, déployé, itératif — qui soutient l'offre et la vente.",
      tool:"Mini-système no-code / app légère / espace client-outil",
-     why:"Parce que vous gagnez en lisibilité, en répétabilité et en valeur perçue.",strategy:{direction:"Rendre votre valeur répétable et visible grâce à un système simple et déployé.",steps:[{t:"1 · Modélisation",d:"Cartographier votre offre et le parcours client. Livrable : le schéma de votre système."},{t:"2 · Construction",d:"Un mini-système no-code / app légère / espace client-outil. Livrable : l'actif en ligne."},{t:"3 · Itération",d:"Tester sur cas réels, améliorer en continu. Livrable : une v2 éprouvée et ses métriques."}],kpi:"Cap à 90 jours : une offre répétable, une valeur perçue qui monte, du temps regagné."}},
+     why:"Parce que vous gagnez en lisibilité, en répétabilité et en valeur perçue.",strategy:{direction:"Rendre votre valeur répétable et visible grâce à un système simple et déployé.",steps:[{t:"1 · Modélisation",d:"Cartographier votre offre et le parcours client. Livrable : le schéma de votre système.",dur:"Semaines 1–2",jalon:"Le schéma de système est validé.",kpi:"1 parcours client cartographié de bout en bout"},{t:"2 · Construction",d:"Un mini-système no-code / app légère / espace client-outil. Livrable : l'actif en ligne.",dur:"Semaines 3–7",jalon:"L'actif est en ligne et sert un cas réel.",kpi:"1er client servi via le système"},{t:"3 · Itération",d:"Tester sur cas réels, améliorer en continu. Livrable : une v2 éprouvée et ses métriques.",dur:"Semaines 8–12",jalon:"La v2 intègre les retours terrain.",kpi:"≥ 30 % de temps opérationnel regagné"}],kpi:"Cap à 90 jours : une offre répétable, une valeur perçue qui monte, du temps regagné."}},
   C:{pill:"Constellation C",title:"La Messagère",
      reading:"Vous attirez. Le manque n'est pas l'univers : c'est la mise en vente.",
      risk:"Inspirer… sans convertir.",
      lever:"Un parcours qui montre, guide, puis propose — avec un point d'entrée net.",
      tool:"Page de vente signature + onboarding + séquence de conversion",
-     why:"Parce que vous n'expliquez plus : vous faites traverser une expérience claire.",strategy:{direction:"Convertir l'attention que vous créez en ventes, via un parcours limpide.",steps:[{t:"1 · Point d'entrée net",d:"Une porte d'entrée unique (offre d'appel, aimant). Livrable : une promesse et un aimant."},{t:"2 · Parcours de conversion",d:"Page de vente signature + onboarding + séquence. Livrable : le tunnel complet."},{t:"3 · Optimisation",d:"Mesurer, lever les points de friction. Livrable : un taux de conversion suivi."}],kpi:"Cap à 90 jours : de l'inspiration à la vente, un taux de conversion mesurable."}},
+     why:"Parce que vous n'expliquez plus : vous faites traverser une expérience claire.",strategy:{direction:"Convertir l'attention que vous créez en ventes, via un parcours limpide.",steps:[{t:"1 · Point d'entrée net",d:"Une porte d'entrée unique (offre d'appel, aimant). Livrable : une promesse et un aimant.",dur:"Semaines 1–2",jalon:"L'aimant est publié et capte des emails.",kpi:"≥ 100 inscrits / mois"},{t:"2 · Parcours de conversion",d:"Page de vente signature + onboarding + séquence. Livrable : le tunnel complet.",dur:"Semaines 3–7",jalon:"Le tunnel de vente est complet et actif.",kpi:"1re vente via le parcours"},{t:"3 · Optimisation",d:"Mesurer, lever les points de friction. Livrable : un taux de conversion suivi.",dur:"Semaines 8–12",jalon:"Les points de friction sont mesurés et levés.",kpi:"taux de conversion ≥ 2 %"}],kpi:"Cap à 90 jours : de l'inspiration à la vente, un taux de conversion mesurable."}},
   D:{pill:"Constellation D",title:"L'Alchimiste",
      reading:"Votre talent, c'est la nuance et le sens. Votre enjeu, c'est la lisibilité.",
      risk:"Être comprise « en profondeur »… mais trop tard.",
      lever:"Une expérience qui fait ressentir vite + un CTA net.",
      tool:"Mini-site narratif / vidéo concept / expérience éditoriale",
-     why:"Parce que votre signature se ressent immédiatement, sans justification interminable.",strategy:{direction:"Rendre votre profondeur immédiatement perceptible : faire ressentir avant d'expliquer.",steps:[{t:"1 · Traduction",d:"Concept, récit, direction artistique. Livrable : un manifeste et une direction visuelle."},{t:"2 · Expérience",d:"Mini-site narratif / vidéo concept / expérience éditoriale. Livrable : l'expérience en ligne."},{t:"3 · Appel à l'action",d:"Un CTA unique, une entrée claire. Livrable : une conversion sans justification."}],kpi:"Cap à 90 jours : une signature qui se ressent en quelques secondes, et un passage à l'action net."}}
+     why:"Parce que votre signature se ressent immédiatement, sans justification interminable.",strategy:{direction:"Rendre votre profondeur immédiatement perceptible : faire ressentir avant d'expliquer.",steps:[{t:"1 · Traduction",d:"Concept, récit, direction artistique. Livrable : un manifeste et une direction visuelle.",dur:"Semaines 1–3",jalon:"Le manifeste et la direction visuelle sont posés.",kpi:"1 concept validé au test des 5 secondes"},{t:"2 · Expérience",d:"Mini-site narratif / vidéo concept / expérience éditoriale. Livrable : l'expérience en ligne.",dur:"Semaines 4–8",jalon:"L'expérience est en ligne.",kpi:"≥ 70 % comprennent l'offre en < 30 s"},{t:"3 · Appel à l'action",d:"Un CTA unique, une entrée claire. Livrable : une conversion sans justification.",dur:"Semaines 9–12",jalon:"Le CTA unique est en place et suivi.",kpi:"1er passage à l'action mesuré"}],kpi:"Cap à 90 jours : une signature qui se ressent en quelques secondes, et un passage à l'action net."}}
 };
 
 let lastAnswers=[];
@@ -266,7 +272,7 @@ function renderResult(letter){
   var S=r.strategy;
   document.getElementById("resultDirection").textContent=S.direction;
   var ol=document.getElementById("resultSteps"); ol.innerHTML="";
-  S.steps.forEach(function(s){var li=document.createElement("li");li.innerHTML="<strong>"+s.t+"</strong><span>"+s.d+"</span>";ol.appendChild(li);});
+  S.steps.forEach(function(s){var li=document.createElement("li");li.innerHTML="<strong>"+s.t+"</strong><span>"+s.d+"</span>"+"<span class=\"smeta\">"+"<i class=\"dur\">"+s.dur+"</i>"+"<i class=\"jalon\"><b>Jalon</b> "+s.jalon+"</i>"+"<i class=\"kpi\"><b>KPI</b> "+s.kpi+"</i>"+"</span>";ol.appendChild(li);});
   document.getElementById("resultKpi").innerHTML="<strong>Priorité :</strong> "+S.kpi;
   document.getElementById("fProfil").value=r.pill+" — "+r.title;
   document.getElementById("fReponses").value=lastAnswers.join("");
