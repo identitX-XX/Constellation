@@ -153,6 +153,12 @@ header.scrolled{border-bottom-color:var(--line)}
 .prog-body .mvt .c{width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--gold)}
 .prog-body .mvt h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:var(--ink);margin-bottom:4px}
 .prog-body .mvt p{margin-bottom:0}
+.prog-body .mvt-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.prog-body .mvt-meta i{font-style:normal;font-family:'Outfit',sans-serif;font-size:11.5px;line-height:1.35;letter-spacing:.01em;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink-soft)}
+.prog-body .mvt-meta i b{font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-size:10px;margin-right:4px}
+.prog-body .mvt-meta i.dur{color:var(--ink);font-weight:500}
+.prog-body .mvt-meta i.kpi{background:color-mix(in srgb,var(--gold) 9%,var(--panel));border-color:var(--gold-soft);color:var(--gold)}
+.prog-body .mvt-meta i.kpi b{color:var(--gold)}
 .prog-body .chute{font-family:'Fraunces',serif;font-style:italic;color:var(--ink);font-size:18px;margin-top:18px}
 .prog-body .vide{font-style:italic;color:var(--faint);border-left:2px solid var(--line-2);padding-left:14px;margin-bottom:14px}
 @media(max-width:640px){
@@ -364,9 +370,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
         <div class="prog-body"><div class="inner">
           <p class="lettrine">Un fil conducteur en quatre temps : on exhume votre <em>fil rouge</em>, on modélise votre projet entrepreneurial, on affine votre idée en la confrontant au réel, puis on prototype, on expérimente et on améliore (design de service).</p>
           <span class="eyebrow">Trois mouvements</span>
-          <div class="mvt"><div class="c">1</div><div><h4>Cartographie de vos actifs invisibles</h4><p>On exhume les angles morts de votre parcours <span class="st">✦</span> les rôles joués, surjoués, en devenir. On identifie deux fils rouges au maximum, on les transforme en matière à agir, et on modélise une base concrète pour la suite.</p></div></div>
-          <div class="mvt"><div class="c">2</div><div><h4>Design de votre système</h4><p>Vos <em>patterns</em> résolus deviennent vos enseignements : vos territoires conquis nourrissent et inspirent vos clients. On rend votre écosystème lisible, cohérent et identifiable, et on clarifie ce qui vous distingue <span class="st">✦</span> et comment vous le racontez.</p></div></div>
-          <div class="mvt"><div class="c">3</div><div><h4>Déploiement</h4><p>On déploie, on teste sur des cas réels, on ajuste : itérations, améliorations continues, confrontation au terrain et apprentissages rapides.</p></div></div>
+          <div class="mvt"><div class="c">1</div><div><h4>Cartographie de vos actifs invisibles</h4><p>On exhume les angles morts de votre parcours <span class="st">✦</span> les rôles joués, surjoués, en devenir. On identifie deux fils rouges au maximum, on les transforme en matière à agir, et on modélise une base concrète pour la suite.</p><span class="mvt-meta"><i class="dur">Semaines 1–3</i><i class="jalon"><b>Jalon</b> Deux fils rouges identifiés et validés.</i><i class="kpi"><b>KPI</b> 1 base de positionnement modélisée</i></span></div></div>
+          <div class="mvt"><div class="c">2</div><div><h4>Design de votre système</h4><p>Vos <em>patterns</em> résolus deviennent vos enseignements : vos territoires conquis nourrissent et inspirent vos clients. On rend votre écosystème lisible, cohérent et identifiable, et on clarifie ce qui vous distingue <span class="st">✦</span> et comment vous le racontez.</p><span class="mvt-meta"><i class="dur">Semaines 4–8</i><i class="jalon"><b>Jalon</b> Votre écosystème est lisible et cohérent.</i><i class="kpi"><b>KPI</b> 1 système déployable prêt à tester</i></span></div></div>
+          <div class="mvt"><div class="c">3</div><div><h4>Déploiement</h4><p>On déploie, on teste sur des cas réels, on ajuste : itérations, améliorations continues, confrontation au terrain et apprentissages rapides.</p><span class="mvt-meta"><i class="dur">Semaines 9–12</i><i class="jalon"><b>Jalon</b> Testé sur cas réels, ajusté.</i><i class="kpi"><b>KPI</b> ≥ 1 cycle d'itération mesuré</i></span></div></div>
         </div></div>
       </div>
 
